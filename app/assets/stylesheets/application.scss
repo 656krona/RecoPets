@@ -12,3 +12,45 @@
  *
  */
  @import "bootstrap";
+
+$main-color :rgb(240,240,240);
+$auth :#7EA6E0;
+$auth-action :#A9C4EB;
+
+html{
+  height: 100%;
+}
+
+body {
+  background-color: $main-color;
+  -webkit-text-size-adjust:100%;
+  margin:0;
+  padding:0;
+}
+
+ .form-content {
+  box-shadow: 0 20px 40px 0 rgba(0,0,0,.5);
+  background-color: white;
+  border-radius: 5px;
+  padding: 60px 0;
+  text-align: center;
+
+  .form-title {
+    color: $auth;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+
+  .form-btn {
+    background-color: $auth;
+    border: none;
+    border-radius: 30px;
+    margin-top: 20px;
+
+    &:hover {
+      background-color: $auth-action;
+    }
+  }
+
+
+ }
