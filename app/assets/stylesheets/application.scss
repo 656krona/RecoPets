@@ -14,6 +14,8 @@
  @import "bootstrap";
 
 $main-color :rgb(240,240,240);
+$app-color :#ACDBC9;
+$font-color: #333;
 $auth :#7EA6E0;
 $auth-action :#A9C4EB;
 
@@ -28,33 +30,53 @@ body {
   padding:0;
 }
 
-/*認証*/
+/*ヘッダー*/
+.navbar {
+  margin-bottom: 30px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
 
-.form-content {
-  box-shadow: 0 20px 40px 0 rgba(0,0,0,.5);
-  background-color: white;
-  border-radius: 5px;
-  padding: 60px 0;
-  text-align: center;
+/*フッター*/
+.footer-content{
+  background-color: $app-color;
+  margin-top: 30px;
 
-  .form-title {
-    color: $auth;
-    font-weight: bold;
-    margin-bottom: 30px;
+  .nav-style {
+    list-style: none;
+    color: #fff;
   }
 
-  .form-btn {
-    background-color: $auth;
-    border: none;
-    border-radius: 30px;
-    margin-top: 20px;
+}
 
-    &:hover {
-      background-color: $auth-action;
+/*認証*/
+.form-content{
+  padding:80px 0;
+
+  .auth-form {
+    box-shadow: 0 20px 40px 0 rgba(0,0,0,.5);
+    background-color: white;
+    border-radius: 5px;
+    padding: 60px 0;
+    text-align: center;
+
+    .form-title {
+      color: $auth;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .form-btn {
+      background-color: $auth;
+      border: none;
+      border-radius: 30px;
+      margin-top: 20px;
+
+      &:hover {
+        background-color: $auth-action;
+      }
     }
   }
-
- }
+}
 
  /*home*/
 
