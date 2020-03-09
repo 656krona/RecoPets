@@ -18,6 +18,13 @@ $app-color :#ACDBC9;
 $font-color: #333;
 $auth :#7EA6E0;
 $auth-action :#A9C4EB;
+$pet: #F7A7A6;
+$pet-action: #FFDBDB;
+
+@mixin button {
+  border: none;
+  border-radius: 30px;
+}
 
 html{
   height: 100%;
@@ -66,9 +73,8 @@ body {
     }
 
     .form-btn {
+      @include button;
       background-color: $auth;
-      border: none;
-      border-radius: 30px;
       margin-top: 20px;
 
       &:hover {
@@ -95,6 +101,78 @@ body {
     padding: 30px;
     text-align: center;
   }
+
+/* pet */
+.form-content{
+  padding:80px 0;
+
+  .pet-form {
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.1);
+    background-color: white;
+    border-radius: 5px;
+    padding: 80px;
+    text-align: center;
+
+    .form-title {
+      color: $pet;
+      font-weight: bold;
+      margin-bottom: 50px;
+    }
+
+    .form-btn {
+      @include button;
+      background-color: $pet;
+      margin-top: 30px;
+
+      &:hover {
+        background-color: $pet-action;
+      }
+    }
+  }
+}
+
+
+.pet-content{
+  padding: 20px 0;
+
+  .pet-select {
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.1);
+    background-color: white;
+    border-radius: 5px;
+    padding: 80px;
+    text-align: center;
+
+    .select-title {
+      color: $pet;
+      font-weight: bold;
+      margin-bottom: 50px;
+    }
+
+    .pet-list {
+      margin-right: 20px;
+      background-color: rgba(247,167,166,0.6);
+      border-radius: 5px;
+      box-shadow: 0 1px 5px 0 rgba(0,0,0,.1);
+      padding: 30px;
+
+        .pet-name {
+          padding-top: 20px;
+          color: #fff;
+        }
+      }
+
+    .form-btn {
+      @include button;
+      background-color: $pet;
+      margin-top: 50px;
+
+      &:hover {
+        background-color: $pet-action;
+      }
+    }
+  }
+}
+
 
 
 
