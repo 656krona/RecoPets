@@ -1,34 +1,56 @@
-<h2>SIGN UP</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder:"USERNAME" %>
+<div class="row align-items-center">
+  <div class="col">
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"E-MAIL" %>
+  <div class="form-content col-10 col-md-5">
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <h2 class="form-title">SIGN UP</h2>
+
+        <form>
+          <div class="form-group">
+           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+          </div>
+
+          <div class="form-group">
+            <div class="field">
+              <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder:"USERNAME",class:"form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="field">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"E-MAIL", class:"form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="field">
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %>
+              <%= f.password_field :password, autocomplete: "new-password", placeholder:"PASSWORD", class:"form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="field">
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"REPEAT PASSWORD", class:"form-control"%>
+            </div>
+          </div>
+
+            <div class="actions">
+              <%= f.submit "SIGN UP", class:"btn btn-primary btn-lg btn-block form-btn" %>
+            </div>
+          <% end %>
+
+          <%= render "users/shared/links" %>
+        </form>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", placeholder:"PASSWORD" %>
+  <div class="col">
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"REPEAT PASSWORD"%>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "SIGN UP" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
