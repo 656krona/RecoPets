@@ -28,7 +28,9 @@ body {
   padding:0;
 }
 
- .form-content {
+/*認証*/
+
+.form-content {
   box-shadow: 0 20px 40px 0 rgba(0,0,0,.5);
   background-color: white;
   border-radius: 5px;
@@ -52,5 +54,25 @@ body {
     }
   }
 
-
  }
+
+ /*home*/
+
+  .top-img {
+    filter:opacity(40%)drop-shadow(5px 5px 10px #FFEFF7);
+  }
+
+  .no-gutters {
+    margin:0;
+    padding:0;
+  }
+
+  .top-title {
+    max-width: 100%;
+    max-height: 100%;
+    padding: 30px;
+    text-align: center;
+  }
+
+
+
