@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :pets, only: [:index, :new, :create, :destroy]
   resources :hospitals, only: [:index]
+  resources :records
 
   get 'search/search'
 
