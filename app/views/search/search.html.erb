@@ -1,0 +1,37 @@
+<div class="row align-items-center">
+  <div class="col">
+  </div>
+  <div class="col-12 hopsital-content">
+    <div class="row justify-content-center">
+      <div class="col">
+      </div>
+      <div class="col-8">
+        <h3 class="title-text">病院検索</h3>
+        <p><div class="search-area">
+        <%= form_with url: search_search_path, method: :get ,local: true do |f| %>
+          <%= f.collection_select :prefecute_name, JpPrefecture::Prefecture.all, :name, :name, include_blank: true %>
+          <%= f.text_field :search, placeholder:"病院名" %>
+          <%= f.submit '探す', :name => nil %>
+        <% end %>
+        </div>
+        </p>
+        <div class="hopsital-content">
+          <% @hospitals.each do |hospital| %>
+
+          <div class="hospital-list">
+            <h5><%= hospital.name %></h5>
+              <p class="addr">所在地：
+                <p>〒<%= hospital.postcode + hospital.prefecture_name + hospital.address_city + hospital.address_street %></p>
+              </p>
+          </div>
+          <% end %>
+        </div>
+
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
+  <div class="col">
+  </div>
+</div>

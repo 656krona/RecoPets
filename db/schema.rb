@@ -14,10 +14,11 @@ ActiveRecord::Schema.define(version: 2020_03_10_055053) do
 
   create_table "hospitals", force: :cascade do |t|
     t.string "name"
-    t.integer "postcode"
+    t.string "postcode"
     t.string "prefecture_name"
     t.string "address_city"
     t.string "address_street"
+    t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
