@@ -21,9 +21,12 @@ $auth-action :#A9C4EB;
 $pet: #F7A7A6;
 $pet-action: #FFDBDB;
 
+$ja-font: 'M PLUS Rounded 1c', sans-serif;
+
 @mixin button {
   border: none;
   border-radius: 30px;
+  padding: 14px 48px;
 }
 
 html{
@@ -35,6 +38,7 @@ body {
   -webkit-text-size-adjust:100%;
   margin:0;
   padding:0;
+  font-family: $ja-font;
 }
 
 /*ヘッダー*/
@@ -104,14 +108,21 @@ body {
 
 /* pet */
 .form-content{
-  padding:80px 0;
+  padding:20px 0;
 
   .pet-form {
     box-shadow: 0 1px 5px 0 rgba(0,0,0,.1);
     background-color: white;
     border-radius: 5px;
-    padding: 80px;
     text-align: center;
+
+    .btn-back {
+      padding: 20px;
+    }
+
+    .form-area{
+      padding: 50px 20px;
+    }
 
     .form-title {
       color: $pet;
@@ -119,7 +130,7 @@ body {
       margin-bottom: 50px;
     }
 
-    .form-btn {
+    .btn-pet {
       @include button;
       background-color: $pet;
       margin-top: 30px;
@@ -154,6 +165,7 @@ body {
       border-radius: 5px;
       box-shadow: 0 1px 5px 0 rgba(0,0,0,.1);
       padding: 30px;
+      cursor: pointer;
 
         .pet-name {
           padding-top: 20px;
@@ -161,7 +173,7 @@ body {
         }
       }
 
-    .form-btn {
+    .btn-pet {
       @include button;
       background-color: $pet;
       margin-top: 50px;
