@@ -5,6 +5,9 @@ class RecordsController < ApplicationController
   def new
   end
 
+  def show
+  end
+
   def create
   end
 
@@ -12,6 +15,12 @@ class RecordsController < ApplicationController
   end
 
   def update
+  end
+
+  private
+
+  def record_params
+    params.require(:record).permit(:content_type, :memo, :record_image)
   end
 
 end
