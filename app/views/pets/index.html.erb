@@ -1,0 +1,29 @@
+<div class="row align-items-center pet-content">
+  <div class="col">
+  </div>
+  <div class="pet-select col-12">
+    <div class="row justify-content-center">
+      <div class="col">
+      </div>
+      <div class="col-8">
+        <h3 class="select-title">ペットを選択してください</h3>
+
+        <div class="d-flex justify-content-center">
+          <% @pets.each do |pet| %>
+
+          <div class="pet-list">
+            <%= attachment_image_tag(pet, :pet_image, :fill, 120, 120, format: 'jpeg', class: "rounded-circle", fallback: "no-image-mini.jpg") %><br>
+            <h4 class="pet-name"><%= pet.name %></h4>
+          </div>
+          <% end %>
+        </div>
+
+      <%= link_to "ペットを登録する", new_pet_path, class:"btn btn-primary btn-lg btn-pet" %>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
+  <div class="col">
+  </div>
+</div>

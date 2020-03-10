@@ -7,7 +7,6 @@
       <div class="col-8">
         <h2 class="form-title">LOGIN</h2>
 
-        <form>
           <div class="form-group">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="field">
@@ -31,12 +30,11 @@
           </div>
 
             <div class="actions">
-              <%= f.submit "SIGN　IN", class:"btn btn-primary btn-lg btn-block form-btn"  %>
+              <%= f.submit "SIGN IN", class:"btn btn-primary btn-lg btn-block form-btn"  %>
             </div>
           <% end %>
 
           <%= render "users/shared/links" %>
-        </form>
       </div>
     </div>
   </div>

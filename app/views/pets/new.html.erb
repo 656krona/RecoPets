@@ -1,0 +1,43 @@
+<div class="row align-items-center form-content">
+  <div class="col">
+  </div>
+  <div class="col-10 col-md-8 pet-form">
+    <div class="row">
+      <div class="col">
+      <%= link_to "戻る", pets_path, class: "float-right btn-back"%>
+      </div>
+    </div>
+    <div class="row justify-content-center form-area">
+      <div class="col-8">
+        <h3 class="form-title">ペットを登録してください</h3>
+
+        <%= form_with model: @pet, url: pets_path, local: true do |f| %>
+          <% if @pet.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= @pet.errors.count %>件のエラーが発生しました。</h2>
+              <ul>
+              <% @pet.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+            <div class="form-group">
+              <div class="field">
+                <%= f.text_field :name, autofocus: true, placeholder: "なまえ", class:"form-control" %>
+              </div>
+            </div>
+            <div class="field">
+              <%= f.attachment_field :pet_image %>
+            </div>
+
+            <div class="field">
+              <%= f.submit "登録する", class:"btn btn-primary btn-lg btn-pet" %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+  </div>
+</div>
