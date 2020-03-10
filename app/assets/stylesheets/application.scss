@@ -29,6 +29,13 @@ $ja-font: 'M PLUS Rounded 1c', sans-serif;
   padding: 14px 48px;
 }
 
+@mixin box {
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,.1);
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
 html{
   height: 100%;
 }
@@ -106,15 +113,13 @@ body {
     text-align: center;
   }
 
-/* pet */
+/* ---- pet ----- */
+  /* 登録 */
 .form-content{
   padding:20px 0;
 
   .pet-form {
-    box-shadow: 0 1px 5px 0 rgba(0,0,0,.1);
-    background-color: white;
-    border-radius: 5px;
-    text-align: center;
+    @include box;
 
     .btn-back {
       padding: 20px;
@@ -141,17 +146,14 @@ body {
     }
   }
 }
-
+  /* 一覧 */
 
 .pet-content{
   padding: 20px 0;
 
   .pet-select {
-    box-shadow: 0 1px 5px 0 rgba(0,0,0,.1);
-    background-color: white;
-    border-radius: 5px;
+    @include box;
     padding: 80px;
-    text-align: center;
 
     .select-title {
       color: $pet;
@@ -185,6 +187,14 @@ body {
   }
 }
 
+/* ---- hospital ----- */
+.hopsital-content {
+  @include box;
+  padding: 50px;
 
+  .title-text {
+    color: $app-color;
+  }
+}
 
 
