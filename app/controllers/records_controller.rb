@@ -1,6 +1,8 @@
 class RecordsController < ApplicationController
 
   def edit
+    @hospitals = Hospital.all
+    #hospitalcontroller削除予定
     @pet = Pet.find(params[:pet_id])
     @record = Record.find(params[:id])
   end
@@ -16,7 +18,7 @@ class RecordsController < ApplicationController
   private
 
   def record_params
-    params.require(:record).permit(:content_type, :memo, :record_image)
+    params.require(:record).permit(:hospital_id, :content_type, :memo, :history, :record_image)
   end
 
 end

@@ -6,6 +6,7 @@ class CreateRecords < ActiveRecord::Migration[5.2]
       t.datetime :start_time
       t.boolean :content_type,default: 0
       t.string :memo
+      t.string :history
       t.string :record_image_id
 
       t.timestamps

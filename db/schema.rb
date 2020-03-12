@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_03_10_141453) do
     t.datetime "start_time"
     t.boolean "content_type", default: false
     t.string "memo"
+    t.string "history"
     t.string "record_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

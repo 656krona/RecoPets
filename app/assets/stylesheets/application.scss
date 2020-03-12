@@ -14,19 +14,26 @@
  */
  @import "bootstrap";
 
-$main-color :rgb(240,240,240);
-$app-color :#ACDBC9;
+$main-color: rgb(240,240,240);
+$app-color: #8bd9cb;/*#ACDBC9*/
 $font-color: #333;
-$auth :#7EA6E0;
-$auth-action :#A9C4EB;
+$auth: #398596;/*7EA6E0*/
+$auth-action: #76b0bd;/*#A9C4EB*/
 $pet: #F7A7A6;
 $pet-action: #FFDBDB;
+$reco: #FFA530;
 
 $ja-font: 'M PLUS Rounded 1c', sans-serif;
 
-@mixin button {
+@mixin circ-button {
   border: none;
   border-radius: 30px;
+  padding: 14px 48px;
+}
+
+@mixin sq-button {
+  border: none;
+  border-radius: 3px;
   padding: 14px 48px;
 }
 
@@ -86,7 +93,7 @@ body {
     }
 
     .form-btn {
-      @include button;
+      @include circ-button;
       background-color: $auth;
       margin-top: 20px;
 
@@ -136,7 +143,7 @@ body {
   }
 
   .btn-pet {
-    @include button;
+    @include circ-button;
     background-color: $pet;
     margin-top: 30px;
 
@@ -174,7 +181,7 @@ body {
       }
 
     .btn-pet {
-      @include button;
+      @include circ-button;
       background-color: $pet;
       margin-top: 50px;
 
@@ -218,8 +225,14 @@ body {
     padding: 10px;
 
     .btn-will {
-      @include button;
+      @include circ-button;
     }
+
+    .btn-record {
+      @include sq-button;
+      background-color: $reco;
+    }
+
 
   }
 
