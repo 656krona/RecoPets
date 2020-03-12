@@ -11,9 +11,10 @@ Rails.application.routes.draw do
   root  'homes#top'
   get 'homes/about'
 
-  resources :pets, only: [:index, :new, :create, :destroy]
+  resources :pets, only: [:index, :new, :show, :create, :destroy]do
+  resources :records, only: [:edit, :update]
+  end
   resources :hospitals, only: [:index]
-  resources :records
 
   get 'search/search'
 

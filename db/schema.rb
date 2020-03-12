@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2020_03_10_141453) do
   create_table "records", force: :cascade do |t|
     t.integer "pet_id"
     t.integer "hospital_id"
-    t.datetime "date"
-    t.boolean "content_type"
+    t.datetime "start_time"
+    t.boolean "content_type", default: false
     t.string "memo"
     t.string "record_image_id"
     t.datetime "created_at", null: false

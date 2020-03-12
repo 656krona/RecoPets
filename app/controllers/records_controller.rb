@@ -1,20 +1,16 @@
 class RecordsController < ApplicationController
-  def index
-  end
-
-  def new
-  end
-
-  def show
-  end
-
-  def create
-  end
 
   def edit
+    @pet = Pet.find(params[:pet_id])
+    @record = Record.find(params[:id])
   end
 
   def update
+    @pet = Pet.find(params[:pet_id])
+    @record = Record.find(params[:id])
+    @records = @pet.records
+    @record.update(record_params)
+    redirect_to pet_path(@pet)
   end
 
   private

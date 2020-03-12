@@ -11,10 +11,12 @@
         <div class="d-flex justify-content-center">
           <% @pets.each do |pet| %>
 
-          <div class="pet-list">
-            <%= attachment_image_tag(pet, :pet_image, :fill, 120, 120, format: 'jpeg', class: "rounded-circle", fallback: "no-image-mini.jpg") %><br>
-            <h4 class="pet-name"><%= pet.name %></h4>
-          </div>
+            <%= link_to pet_path(pet.id) do %>
+              <div class="pet-list">
+                <%= attachment_image_tag(pet, :pet_image, :fill, 120, 120, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg",:size =>'50x50') %><br>
+              <h4 class="pet-name"><%= pet.name %></h4>
+              </div>
+            <% end %>
           <% end %>
         </div>
 

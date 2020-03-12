@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-12 record-form">
+    <%= form_with model: @record, url: pet_record_path(@pet,@record) do |f| %>
+    <%= f.hidden_field :content_type, value: 0 %>
+    <div class="row">
+      <div class="col-12">
+      <%= f.text_area :memo, class: 'form-control', rows: 15, placeholder: "メモを入力", autofocus: true %>
+      <%= f.submit "保存", class: "btn btn-info" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

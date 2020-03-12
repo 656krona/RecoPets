@@ -3,8 +3,8 @@ class CreateRecords < ActiveRecord::Migration[5.2]
     create_table :records do |t|
       t.integer :pet_id
       t.integer :hospital_id
-      t.datetime :date
-      t.boolean :content_type
+      t.datetime :start_time
+      t.boolean :content_type,default: 0
       t.string :memo
       t.string :record_image_id
 

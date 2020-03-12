@@ -1,0 +1,12 @@
+<div class="row justify-content-center record-content">
+  <div class="col-12">
+    <%= month_calendar events: @records do |date, records| %>
+      <% records.each do |record| %>
+      <%#= link_to "クリック", edit_pet_record_path(@pet,record.id) %>
+        <%= link_to edit_pet_record_path(@pet,record.id) do%>
+          <%= date.day %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

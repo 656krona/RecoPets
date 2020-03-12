@@ -208,4 +208,19 @@ body {
   }
 }
 
+/* ---- record ----- */
 
+.record-content {
+  @include box;
+  padding: 50px 80px;
+
+  .record-form {
+    padding: 10px;
+
+    .btn-will {
+      @include button;
+    }
+
+  }
+
+}

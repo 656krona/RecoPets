@@ -1,0 +1,28 @@
+<div class="row align-items-center">
+
+  <div class="col">
+  </div>
+  <div class="col-10 record-content">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a href="#life" class="nav-link active" data-toggle="tab">体調</a>
+      </li>
+      <li class="nav-item">
+        <a href="#history" class="nav-link" data-toggle="tab">通院</a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="life" class="tab-pane active">
+        <%= render 'records/life', record: @record %>
+      </div>
+      <div id="history" class="tab-pane">
+        <%= render 'records/history', record: @record %>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+  </div>
+
+</div>
+
