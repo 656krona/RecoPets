@@ -27,7 +27,7 @@ class PetsController < ApplicationController
       lastday = date.end_of_month
       #文字列は時間を含んだeach文を回し無限ループ状態なのでダメ
       (firstday..lastday).each do |day|
-        @record = Record.new(start_time: day, hospital_id: 1)
+        @record = Record.new(start_time: day)
         #binding.pry
         @record.pet_id = @pet.id
         @record.save
@@ -37,7 +37,7 @@ class PetsController < ApplicationController
       lastday = Date.parse(params[:start_date]).end_of_month
       #binding.pry
       (firstday..lastday).each do |day|
-        @record = Record.new(start_time: day, hospital_id: 1)
+        @record = Record.new(start_time: day)
         @record.pet_id = @pet.id
         @record.save
       end

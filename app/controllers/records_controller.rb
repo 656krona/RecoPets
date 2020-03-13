@@ -1,10 +1,23 @@
 class RecordsController < ApplicationController
 
-  def edit
-    @hospitals = Hospital.all
-    #hospitalcontroller削除予定
+  def select
     @pet = Pet.find(params[:pet_id])
     @record = Record.find(params[:id])
+    @hospitals = Hospital.all
+  end
+
+  def search
+    @pet = Pet.find(params[:pet_id])
+    @record = Record.find(params[:id])
+    @hospitals = Hospital.search(params[:search],params[:prefecute_name])
+  end
+
+  def edit
+    @hospitals = Hospital.all
+    @pet = Pet.find(params[:pet_id])
+    @record = Record.find(params[:id])
+    @hospital = Hospital.find_by(id: params[:hospital_id])
+    #hospitalcontroller削除予定
   end
 
   def update
