@@ -16,7 +16,7 @@
               <%= f.text_field :search, placeholder:"病院名", class:"form-control" %>
             </div>
             <div class="col-auto">
-              <%= f.submit '探す', :name => nil %>
+              <%= f.submit '探す', :name => nil, data: {"turbolinks" => false} %>
             </div>
             <% end %>
         </div>
