@@ -228,12 +228,11 @@ body {
       @include circ-button;
     }
 
-    .btn-record {
-      @include sq-button;
-      background-color: $reco;
-    }
+  }
 
-
+  .btn-record {
+    @include sq-button;
+    background-color: $reco;
   }
 
 }

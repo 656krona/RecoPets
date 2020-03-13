@@ -12,6 +12,7 @@ class RecordsController < ApplicationController
     @record = Record.find(params[:id])
     @records = @pet.records
     @record.update(record_params)
+    #edit_pet_record_path(@pet,@record)
     redirect_to pet_path(@pet)
   end
 
