@@ -6,12 +6,6 @@ class RecordsController < ApplicationController
     @hospitals = Hospital.all
   end
 
-  def search
-    @pet = Pet.find(params[:pet_id])
-    @record = Record.find(params[:id])
-    @hospitals = Hospital.search(params[:search],params[:prefecute_name])
-  end
-
   def edit
     @hospitals = Hospital.all
     @pet = Pet.find(params[:pet_id])
