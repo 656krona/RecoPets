@@ -1,0 +1,65 @@
+<!-- モーダルウィンドウ外枠 -->
+  <div class="modal" id="hospital" tabindex="-1" role="dialog" aria-labelledby="hospitalModalLabel" aria-hidden="true">
+    <!-- モーダルのダイアログ本体 -->
+    <div class="modal-dialog modal-lg" role="document">
+    <!-- モーダルのダイアログ本体 -->
+      <div class="modal-content">
+        <!-- モーダルのヘッダー -->
+        <div class="modal-header">
+          <!-- モーダルのタイトル -->
+          <h5 class="modal-title" id="hospitalModalLabel">トピックを作成</h5>
+          <!-- 閉じるアイコン -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!-- モーダル本文 -->
+        <div class="modal-body">
+          <div class="row">
+            <div class="col">
+            </div>
+            <div class="col-10 topic-form">
+                <div class="row text-left">
+                  <div class="col-12">
+                    <%= form_with model: topic, url: topics_path, method: :post do |f| %>
+                    <% if topic.errors.any? %>
+                      <h3><%= topic.errors.count %>error occurrence</h3><!--エラーメッセ-->
+                      <ul>
+                        <% topic.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                        <% end %>
+                      </ul>
+                    <% end %>
+                      <div class = "form-group">
+                      <%= f.collection_select(:category_id, @categories, :id, :name, include_blank: "カテゴリを選択") %>
+                      </div>
+                      <div class = "form-group">
+                        <%= f.text_area :title, class: 'form-control', rows: 1, placeholder: "タイトルを入力", autofocus: true %>
+                      </div>
+                      <div class = "form-group">
+                        <%= f.text_area :content, class: 'form-control', rows: 7, placeholder: "本文を入力", autofocus: true %>
+                      </div>
+                      <div class = "form-group">
+                        <%= f.url_field :url, class: 'form-control', rows: 1, placeholder: "URLを引用", autofocus: true %>
+                      </div>
+                      <div class = "form-group">
+                        <%= f.attachment_field :topic_image %>
+                     </div>
+                     <%= f.submit "投稿する", class: "btn btn-info btn-topic", data: {"turbolinks" => false} %>
+                  <% end %>
+                  </div>
+                </div>
+            </div>
+            <div class="col">
+            </div>
+          </div>
+        </div>
+        <!-- モーダルフッター -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- モーダルウィンドウここまで -->

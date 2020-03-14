@@ -26,18 +26,25 @@ $reco: #FFA530;
 
 $ja-font: 'M PLUS Rounded 1c', sans-serif;
 
-@mixin circ-button {
+@mixin button {
   border: none;
-  border-radius: 30px;
   color: #fff;
   padding: 14px 48px;
 }
 
+@mixin circ-button {
+  @include button;
+  border-radius: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
 @mixin sq-button {
-  border: none;
+  @include button;
   border-radius: 3px;
-  color: #fff;
-  padding: 14px 48px;
 }
 
 @mixin close-button {
@@ -66,6 +73,7 @@ body {
   margin:0;
   padding:0;
   font-family: $ja-font;
+  color: #444;
 }
 
 /*ヘッダー*/
@@ -156,11 +164,6 @@ body {
     @include circ-button;
     background-color: $pet;
     margin-top: 30px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transition: all .3s;
-    transition: all .3s;
 
     &:hover {
       background-color: transparent;
@@ -214,11 +217,6 @@ body {
       @include circ-button;
       background-color: $pet;
       margin-top: 50px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      -webkit-transition: all .3s;
-      transition: all .3s;
 
       &:hover {
         background-color: transparent;
@@ -283,24 +281,61 @@ body {
 }
 
 /* ---- topic ----- */
+/*-- index --*/
 .topic-wrap {
 
   .topic-content {
     @include box;
-
+    padding:50px;
 
   .topic-head {
-    color: #e08a91;
+    border-bottom: dotted 2px #ccc;
+
+     .topic-head-text {
+      color: #f6ae5f;
+      font-weight: bold;
+      padding-bottom: 20px;
+     }
+
    }
 
   }
 
+  .side-content {
 
+    .btn-topic {
+      @include sq-button;
+      background-color: $reco;
+    }
 
+    .category-content {
+      box-shadow: 0 1px 5px 0 rgba(0,0,0,.1);
+      background-color: white;
+      border-radius: 5px;
+      text-align: center;
 
+      .category-title {
+        background-color: #aaa;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        color: #fff;
+      }
 
-  .category-content {
-    @include box;
+    }
+  }
+}
+/*-- new --*/
+.topic-form {
+  @include box;
+  padding:50px;
+
+  .btn-topic {
+    @include sq-button;
+    background-color: $reco;
+
+    &:hover {
+      background-color: $reco;
+    }
   }
 
 
