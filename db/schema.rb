@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_14_075057) do
+ActiveRecord::Schema.define(version: 2020_03_14_075803) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.boolean "category_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "hospitals", force: :cascade do |t|
     t.string "name"
