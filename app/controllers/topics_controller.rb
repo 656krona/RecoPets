@@ -1,13 +1,14 @@
 class TopicsController < ApplicationController
+  PER = 20
 
   def index
     if params[:category_id] != nil
-    @topics = Topic.where(category_id: params[:category_id]).page(params[:page])
+    @topics = Topic.where(category_id: params[:category_id]).page(params[:page]).per(PER)
     @topics_count = @topics.count
     @categories = Category.where(category_status: 0)
     @category = Category.find(params[:category_id])
     else
-    @topics = Topic.all.page(params[:page])
+    @topics = Topic.all.page(params[:page]).per(PER)
     @topics_all = Topic.all
     @topics_count = @topics_all.count
     @categories = Category.where(category_status: 0)
