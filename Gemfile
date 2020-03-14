@@ -73,4 +73,6 @@ gem 'jp_prefecture'
 
 gem "simple_calendar", "~> 2.0"
 
+gem 'font-awesome-sass', '~> 5.12.0'
+
 

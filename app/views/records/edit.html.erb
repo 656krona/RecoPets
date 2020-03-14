@@ -34,15 +34,15 @@
               <div class="col">
               </div>
             </div>
-            <div class="row align-items-center mt-3">
-              <div class="col-2 text-left">
+            <div class="row align-items-center">
+              <div class="col-12 col-md-2 text-left mt-3">
               <!-- 病院選択 -->
                 <%=link_to "病院を選ぶ", select_pet_record_path(@pet,@record), class:"btn btn-secondary center-block" %>
               </div>
               <!-- 病院名 -->
-              <div class="col-10 text-left">
+              <div class="col-12 col-md-10 text-left mt-3">
                 <% if @record.hospital_id == nil %>
-                <p>病院名：選択してください</p>
+                病院名：選択してください
                 <% elsif params[:hospital_id] == nil %>
                 病院名：<%= @record.hospital.name %>
                 <% elsif @record.hospital_id != nil %>
