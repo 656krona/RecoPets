@@ -1,4 +1,5 @@
 class Hospital < ApplicationRecord
+  has_many :records
 
   def self.search(search,prefecture_name)
     if search

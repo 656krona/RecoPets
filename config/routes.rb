@@ -11,10 +11,17 @@ Rails.application.routes.draw do
   root  'homes#top'
   get 'homes/about'
 
-  resources :pets, only: [:index, :new, :create, :destroy]
+  resources :pets, only: [:index, :new, :show, :create, :destroy]do
+    resources :records, only: [:edit, :update]do
+    member do
+    get :select
+    get 'search/search'
+    end
+    #resources :hospitals, only: [:index]
+    end
+  end
   resources :hospitals, only: [:index]
 
-  get 'search/search'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

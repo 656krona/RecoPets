@@ -10,24 +10,43 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require simple_calendar
  */
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
  @import "bootstrap";
 
-$main-color :rgb(240,240,240);
-$app-color :#ACDBC9;
+$main-color: rgb(240,240,240);
+$app-color: #8bd9cb;/*#ACDBC9*/
 $font-color: #333;
-$auth :#7EA6E0;
-$auth-action :#A9C4EB;
+$auth: #398596;/*7EA6E0*/
+$auth-action: #76b0bd;/*#A9C4EB*/
 $pet: #F7A7A6;
 $pet-action: #FFDBDB;
+$reco: #FFA530;
 
 $ja-font: 'M PLUS Rounded 1c', sans-serif;
 
-@mixin button {
+@mixin circ-button {
   border: none;
   border-radius: 30px;
+  color: #fff;
   padding: 14px 48px;
 }
+
+@mixin sq-button {
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  padding: 14px 48px;
+}
+
+@mixin close-button {
+  color:grey;
+    &:hover {
+    color:#555;
+    }
+  }
 
 @mixin box {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,.1);
@@ -85,7 +104,7 @@ body {
     }
 
     .form-btn {
-      @include button;
+      @include circ-button;
       background-color: $auth;
       margin-top: 20px;
 
@@ -135,7 +154,7 @@ body {
   }
 
   .btn-pet {
-    @include button;
+    @include circ-button;
     background-color: $pet;
     margin-top: 30px;
 
@@ -173,7 +192,7 @@ body {
       }
 
     .btn-pet {
-      @include button;
+      @include circ-button;
       background-color: $pet;
       margin-top: 50px;
 
@@ -187,7 +206,11 @@ body {
 /* ---- hospital ----- */
 .hopsital-content {
   @include box;
-  padding: 50px;
+  padding: 0 50px 50px;
+
+  .btn-close {
+    @include close-button
+  }
 
   .title-text {
     color: $app-color;
@@ -205,6 +228,30 @@ body {
     text-align: center;
     padding: 30px;
   }
+
+  .btn-hospital {
+    @include sq-button;
+    background-color: $reco;
+  }
 }
 
+/* ---- record ----- */
 
+.record-content {
+  @include box;
+  padding: 50px 80px;
+
+  .record-form {
+    padding: 10px;
+
+    .btn-will {
+      @include circ-button;
+    }
+
+  }
+  .btn-record {
+    @include sq-button;
+    background-color: $reco;
+  }
+
+}

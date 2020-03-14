@@ -60,7 +60,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
+gem 'pry-rails'
 gem 'devise'
 
 gem 'bootstrap', '~> 4.1.1'
@@ -70,5 +70,9 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
 gem 'jp_prefecture'
+
+gem "simple_calendar", "~> 2.0"
+
+gem 'font-awesome-sass', '~> 5.12.0'
 
 

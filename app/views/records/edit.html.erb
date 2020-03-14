@@ -1,0 +1,85 @@
+<div class="row align-items-center">
+
+  <div class="col">
+  </div>
+  <div class="col-10 record-content">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a href="#history" class="nav-link active" data-toggle="tab">通院</a>
+      </li>
+      <li class="nav-item">
+        <a href="#life" class="nav-link" data-toggle="tab">体調</a>
+      </li>
+    </ul>
+    <!-- タブ式入力フォーム -->
+    <%= form_with model: @record, url: pet_record_path(@pet,@record) do |f| %>
+    <div class="tab-content">
+      <!--通院履歴記録タブ-->
+      <div id="history" class="tab-pane active">
+        <div class="row">
+          <div class="col-12 record-form">
+            <div class="row">
+              <div class="col-6 text-left">
+                <%= f.check_box :content_type, value: 1 %>
+                <%= f.label :通院日に設定する %>
+              </div>
+              <div class="col">
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-12 col-md-2 text-left mt-3">
+              <!-- 病院選択 -->
+                <%=link_to "病院を選ぶ", select_pet_record_path(@pet,@record), class:"btn btn-secondary center-block" %>
+              </div>
+              <!-- 病院名 -->
+              <div class="col-12 col-md-10 text-left mt-3">
+                <% if @record.hospital_id == nil %>
+                病院名：選択してください
+                <% elsif params[:hospital_id] == nil %>
+                病院名：<%= @record.hospital.name %>
+                <% elsif @record.hospital_id != nil %>
+                病院名：<%= @hospital.name %>
+                <% end %>
+              </div>
+            </div>
+        <!-- 履歴入力フォームー -->
+            <div class="row mt-3">
+              <div class="col-12">
+                <%= f.text_area :history, class: 'form-control', rows: 10, placeholder: "メモを入力", autofocus: true %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--日常記録タブ-->
+      <div id="life" class="tab-pane">
+        <div class="row">
+          <div class="col-12 record-form">
+              <div class="row">
+                <div class="col-12">
+                <%= f.text_area :memo, class: 'form-control', rows: 12, placeholder: "メモを入力", autofocus: true %>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col text-left">
+                  <%= f.attachment_field :record_image %>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- タブ式入力フォームここまで -->
+    <div class="row float-right align-items-center mt-3">
+      <div class="col">
+        <%= f.submit "保存", class: "btn btn-info btn-record" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <!-- 記録フォームここまで -->
+  <div class="col">
+  </div>
+
+</div>
