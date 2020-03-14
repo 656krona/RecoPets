@@ -17,12 +17,11 @@
  @import "bootstrap";
 
 $main-color: rgb(240,240,240);
-$app-color: #8bd9cb;/*#ACDBC9*/
+$app-color: #8dc9b4;/*#ACDBC9*/
 $font-color: #333;
 $auth: #398596;/*7EA6E0*/
 $auth-action: #76b0bd;/*#A9C4EB*/
-$pet: #F7A7A6;
-$pet-action: #FFDBDB;
+$pet: #f3a9a9;
 $reco: #FFA530;
 
 $ja-font: 'M PLUS Rounded 1c', sans-serif;
@@ -157,9 +156,16 @@ body {
     @include circ-button;
     background-color: $pet;
     margin-top: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all .3s;
+    transition: all .3s;
 
     &:hover {
-      background-color: $pet-action;
+      background-color: transparent;
+      border: 2px solid $pet;
+      color: $pet;
     }
   }
 }
@@ -179,15 +185,28 @@ body {
 
     .pet-list {
       margin-right: 20px;
-      background-color: rgba(247,167,166,0.6);
+      background-color: rgba(250,250,250,0.6);
       border-radius: 5px;
-      box-shadow: 0 1px 5px 0 rgba(0,0,0,.1);
+      box-shadow: 0 1px 5px 0 rgba(0,0,0,.2);
+      border: solid $pet 1px;
       padding: 30px;
       cursor: pointer;
+      text-decoration: none;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-transition: all .3s;
+      transition: all .3s;
+
+      &:hover {
+        -webkit-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+        transform: translateY(-5px);
+        }
 
         .pet-name {
           padding-top: 20px;
-          color: #fff;
+          color: $pet;
         }
       }
 
@@ -195,9 +214,16 @@ body {
       @include circ-button;
       background-color: $pet;
       margin-top: 50px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-transition: all .3s;
+      transition: all .3s;
 
       &:hover {
-        background-color: $pet-action;
+        background-color: transparent;
+        border: 2px solid $pet;
+        color: $pet;
       }
     }
   }
@@ -255,3 +281,30 @@ body {
   }
 
 }
+
+/* ---- topic ----- */
+.topic-wrap {
+
+  .topic-content {
+    @include box;
+
+
+  .topic-head {
+    color: #e08a91;
+   }
+
+  }
+
+
+
+
+
+  .category-content {
+    @include box;
+  }
+
+
+}
+
+
+
