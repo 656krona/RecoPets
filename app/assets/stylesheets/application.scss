@@ -12,9 +12,9 @@
  *
  *= require simple_calendar
  */
- @import "bootstrap";
  @import "font-awesome-sprockets";
  @import "font-awesome";
+ @import "bootstrap";
 
 $main-color: rgb(240,240,240);
 $app-color: #8bd9cb;/*#ACDBC9*/
@@ -40,6 +40,13 @@ $ja-font: 'M PLUS Rounded 1c', sans-serif;
   color: #fff;
   padding: 14px 48px;
 }
+
+@mixin close-button {
+  color:grey;
+    &:hover {
+    color:#555;
+    }
+  }
 
 @mixin box {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,.1);
@@ -199,7 +206,11 @@ body {
 /* ---- hospital ----- */
 .hopsital-content {
   @include box;
-  padding: 50px;
+  padding: 0 50px 50px;
+
+  .btn-close {
+    @include close-button
+  }
 
   .title-text {
     color: $app-color;

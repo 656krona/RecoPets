@@ -18,18 +18,10 @@
       <div id="history" class="tab-pane active">
         <div class="row">
           <div class="col-12 record-form">
-          <%= f.hidden_field :content_type, value: 0 %>
             <div class="row">
               <div class="col-6 text-left">
-                <p><a class="btn btn-info toggle-btn" role="button">通院日に設定する</a>
-                <span class="collapse">
-                  登録しました
-                </span></p>
-                <script>
-                  $('.toggle-btn').click(function(){
-                    $('.collapse').collapse('toggle');
-                  })
-                </script>
+                <%= f.check_box :content_type, value: 1 %>
+                <%= f.label :通院日に設定する %>
               </div>
               <div class="col">
               </div>
