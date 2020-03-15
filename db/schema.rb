@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_141453) do
+ActiveRecord::Schema.define(version: 2020_03_14_075803) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.boolean "category_status", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "hospitals", force: :cascade do |t|
     t.string "name"
@@ -39,6 +46,17 @@ ActiveRecord::Schema.define(version: 2020_03_10_141453) do
     t.string "memo"
     t.string "history"
     t.string "record_image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "category_id"
+    t.string "title"
+    t.string "content"
+    t.string "topic_image_id"
+    t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

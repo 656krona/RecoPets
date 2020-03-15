@@ -1,16 +1,24 @@
-
-<nav class="navbar navbar-expand-md navbar-dark sticky-top" style="background-color: #8bd9cb;">
+<nav class="navbar navbar-expand-md navbar-dark sticky-top" style="background-color: #8dc9b4;">
   <div class="container">
-    <a class="navbar-brand" href="#">RecoPets</a>
+    <a class="navbar-brand" href="/pets">RecoPets</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbar-content">
       <ul class="navbar-nav mr-auto">
+        <% if user_signed_in? %>
         <%= header_link_item('通院履歴', root_path) %>
         <%= header_link_item('在庫管理', root_path) %>
-        <%= header_link_item('掲示板', root_path) %>
+        <%= header_link_item('掲示板', topics_path) %>
+        <%= header_link_item('マイページ', '#') %>
+        <%= header_link_item('ログアウト', destroy_user_session_path, method: :delete) %>
+        <% else %>
+        <%= header_link_item('Recopetsとは', homes_about_path) %>
+        <%= header_link_item('掲示板', topics_path) %>
+        <%= header_link_item('会員登録', new_user_registration_path) %>
+        <%= header_link_item('ログイン', new_user_session_path) %>
+        <% end %>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

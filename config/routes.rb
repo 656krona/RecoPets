@@ -13,14 +13,14 @@ Rails.application.routes.draw do
 
   resources :pets, only: [:index, :new, :show, :create, :destroy]do
     resources :records, only: [:edit, :update]do
-    member do
-    get :select
-    get 'search/search'
-    end
-    #resources :hospitals, only: [:index]
+      member do
+      get :select
+      get 'search/search'
+      end
     end
   end
-  resources :hospitals, only: [:index]
+
+  resources :topics, only: [:index, :new, :create]
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
