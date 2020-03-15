@@ -2,18 +2,39 @@
   <div class="col">
   </div>
   <div class="col-6 topic-form">
-      <div class="row">
+      <div class="row text-left">
         <div class="col-12">
-          <%= form_with model: @topic do |f| %>
-            <div class = "form-group">
-              <%= f.text_area :title, class: 'form-control', rows: 1, placeholder: "タイトルを入力", autofocus: true %>
+          <%= form_with model: @topic, url: topics_path, local: true do |f| %>
+          <% if @topic.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= @topic.errors.count %>件のエラーが発生しました。</h2>
+              <ul>
+              <% @topic.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
             </div>
-            <div class = "form-group">
-              <%= f.text_area :content, class: 'form-control', rows: 7, placeholder: "本文を入力", autofocus: true %>
-            </div>
-            <div class = "form-group">
-             <%= f.attachment_field :topic_image %>
-           </div>
+          <% end %>
+          <div class = "form-group">
+          <%= f.collection_select(:category_id, @categories, :id, :name, include_blank: "カテゴリを選択") %>
+          </div>
+          <div class = "form-group">
+            <%= f.text_area :title, class: 'form-control', rows: 1, placeholder: "タイトルを入力", autofocus: true %>
+          </div>
+          <div class = "form-group">
+            <%= f.text_area :content, class: 'form-control', rows: 7, placeholder: "本文を入力", autofocus: true %>
+          </div>
+          <div class = "form-group">
+            <%= f.url_field :url, class: 'form-control', rows: 1, placeholder: "URLを引用", autofocus: true %>
+          </div>
+          <div class="field">
+              <%= f.attachment_field :topic_image %>
+          </div>
+          <!--<div class = "form-group">
+            <%#= attachment_image_tag @topic, :topic_image, :fill, 200, 200, fallback: "no_image.jpg", size: '100x100'  %>
+            <%#= f.attachment_field :topic_image %>
+         </div>-->
+         <%= f.submit "投稿する", class: "btn btn-info btn-topic", data: {"turbolinks" => false} %>
         <% end %>
         </div>
       </div>
