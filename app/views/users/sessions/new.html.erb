@@ -8,31 +8,28 @@
         <h2 class="form-title">LOGIN</h2>
 
           <div class="form-group">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="field">
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"E-MAIL", class:"form-control" %>
-            </div>
-          </div>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= render "users/shared/error_messages", resource: resource %>
+              <div class="form-group">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"E-MAIL", class:"form-control" %>
+              </div>
 
-          <div class="form-group">
-            <div class="field">
-              <%= f.password_field :password, autocomplete: "current-password", placeholder:"PASSWORD", class:"form-control" %>
-            </div>
-          </div>
+              <div class="form-group">
+                <%= f.password_field :password, autocomplete: "current-password", placeholder:"PASSWORD", class:"form-control" %>
+              </div>
 
-          <div class="form-group">
-            <% if devise_mapping.rememberable? %>
-              <div class="field">
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me %>
+              <% if devise_mapping.rememberable? %>
+                <div class="form-group">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                </div>
+              <% end %>
+
+              <div class="actions">
+                <%= f.submit "SIGN IN", class:"btn btn-primary btn-lg btn-block form-btn"  %>
               </div>
             <% end %>
           </div>
-
-            <div class="actions">
-              <%= f.submit "SIGN IN", class:"btn btn-primary btn-lg btn-block form-btn"  %>
-            </div>
-          <% end %>
 
           <%= render "users/shared/links" %>
       </div>
