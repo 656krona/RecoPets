@@ -23,6 +23,8 @@ $auth: #398596;/*7EA6E0*/
 $auth-action: #76b0bd;/*#A9C4EB*/
 $pet: #f3a9a9;
 $reco: #FFA530;
+$topic: #f6ae5f;
+$topic-action: #f3bc80;
 
 $ja-font: 'M PLUS Rounded 1c', sans-serif;
 
@@ -65,14 +67,22 @@ $ja-font: 'M PLUS Rounded 1c', sans-serif;
 
 body {
   background-color: $main-color;
-  -webkit-text-size-adjust:100%;
-  margin:0;
-  padding:0;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
   font-family: $ja-font;
   color: #444;
 }
 
 /*ヘッダー*/
+header {
+  background-color: #fff;
+  .header-logo {
+    width: 35%;
+  }
+
+}
+
 .navbar {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
@@ -91,7 +101,7 @@ body {
 
 /*認証*/
 .form-content{
-  padding:80px 0;
+  padding: 50px 0;
 
   .auth-form {
     box-shadow: 0 20px 40px 0 rgba(0,0,0,.5);
@@ -282,16 +292,34 @@ body {
 
   .topic-content {
     @include box;
-    padding:50px;
+    padding: 50px;
 
   .topic-head {
     border-bottom: dotted 2px #ccc;
 
      .topic-head-text {
-      color: #f6ae5f;
+      color: $topic;
       font-weight: bold;
-      padding-bottom: 20px;
+      text-decoration: none;
+
+      &:hover {
+        color: $topic-action;
+      }
+
      }
+
+   }
+
+   .topic-list {
+    border-bottom: solid 1px #ccc;
+
+    .topic-info {
+      color: #aaa;
+    }
+
+    .topic-title {
+      color: $topic;
+    }
 
    }
 
@@ -301,7 +329,12 @@ body {
 
     .btn-topic {
       @include sq-button;
-      background-color: $reco;
+      background-color: $topic;
+
+      &:hover {
+        background-color: $topic-action;
+      }
+
     }
 
     .category-content {
@@ -323,14 +356,14 @@ body {
 /*-- new --*/
 .topic-form {
   @include box;
-  padding:50px;
+  padding: 50px;
 
   .btn-topic {
     @include sq-button;
-    background-color: $reco;
+    background-color: $topic;
 
     &:hover {
-      background-color: $reco;
+      background-color: $topic-action;
     }
   }
 
