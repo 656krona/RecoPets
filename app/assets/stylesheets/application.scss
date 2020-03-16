@@ -286,7 +286,7 @@ header {
 
 }
 
-/* ---- topic ----- */
+/* ---- topic(comment) ----- */
 /*-- index --*/
 .topic-wrap {
 
@@ -294,34 +294,50 @@ header {
     @include box;
     padding: 50px;
 
-  .topic-head {
-    border-bottom: dotted 2px #ccc;
+    .topic-head {
+      border-bottom: dotted 2px #ccc;
 
-     .topic-head-text {
-      color: $topic;
-      font-weight: bold;
-      text-decoration: none;
+       .topic-head-text {
+        color: $topic;
+        font-weight: bold;
+        text-decoration: none;
 
-      &:hover {
-        color: $topic-action;
+        &:hover {
+          color: $topic-action;
+        }
+
       }
 
-     }
-
-   }
-
-   .topic-list {
-    border-bottom: solid 1px #ccc;
-
-    .topic-info {
-      color: #aaa;
     }
 
-    .topic-title {
-      color: $topic;
+    .pagination>li>a {
+      border: none;     /*枠線をなくす*/
+      color: #aaa;   /*文字の色を変える*/
+
+       /* 表示しているページ番号のデザイン */
+      .active {
+      background: #ccc;     /*背景の色を変える*/
+      border-radius: 15px;     /*角を丸くする*/
+      }
+      /*ホバー時のデザイン*/
+      &:hover {
+        border-radius: 15px;/*角を丸くする*/
+      }
+
     }
 
-   }
+    .topic-list {
+      border-bottom: solid 1px #ccc;
+
+      .topic-info {
+        color: #aaa;
+      }
+
+      .topic-title {
+        color: $topic;
+      }
+
+    }
 
   }
 
@@ -351,6 +367,21 @@ header {
       }
 
     }
+    #back {
+      position: fixed;
+      right: 300px;
+      bottom: 50px;
+
+      i {
+        color: $app-color;
+
+        &:hover {
+        color: $app-color;
+        }
+
+      }
+
+    }
   }
 }
 /*-- new --*/
@@ -367,7 +398,15 @@ header {
     }
   }
 
+}
 
+.btn-comment {
+  @include sq-button;
+    background-color: $topic;
+
+    &:hover {
+      background-color: $topic-action;
+    }
 }
 
 
