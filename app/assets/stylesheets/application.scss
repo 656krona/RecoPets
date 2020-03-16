@@ -67,14 +67,22 @@ $ja-font: 'M PLUS Rounded 1c', sans-serif;
 
 body {
   background-color: $main-color;
-  -webkit-text-size-adjust:100%;
-  margin:0;
-  padding:0;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
   font-family: $ja-font;
   color: #444;
 }
 
 /*ヘッダー*/
+header {
+  background-color: #fff;
+  .header-logo {
+    width: 35%;
+  }
+
+}
+
 .navbar {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
@@ -93,7 +101,7 @@ body {
 
 /*認証*/
 .form-content{
-  padding:80px 0;
+  padding: 50px 0;
 
   .auth-form {
     box-shadow: 0 20px 40px 0 rgba(0,0,0,.5);
