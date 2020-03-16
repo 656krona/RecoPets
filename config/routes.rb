@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   resources :topics, only: [:index, :new, :create]do
-    resources :comments, only: [:index :create, :destroy]
+    resources :comments, only: [:index, :create, :destroy]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
