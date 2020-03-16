@@ -23,28 +23,27 @@
               <%= f.text_field :search, placeholder:"病院名", class:"form-control" %>
             </div>
             <div class="col-auto">
-              <%= f.submit '探す', :name => nil, data: {"turbolinks" => false} %>
+              <%= f.submit '探す', :name => nil %>
             </div>
             <% end %>
         </div>
-
-        <%= form_with url: edit_pet_record_path(@pet,@record), method: :get ,local: true do |f| %>
-            <% @hospitals.each do |hospital| %>
-              <div class="row align-items-center hospital-list">
-                <div class="col-4">
-                <h5><%= f.radio_button :hospital_id, hospital.id %>
-                <%= hospital.name %></h5>
-                </div>
-                <div class="col-8">
-                  <p class="addr text-left">所在地：
-                  〒<%= hospital.postcode.to_s + hospital.prefecture_name + hospital.address_city + hospital.address_street %><br>
-                   電話：<%= hospital.phone %></p>
-                </div>
+        <%= form_with model: @record, url: pet_record_path(@pet,@record) do |f| %>
+          <% @hospitals.each do |hospital| %>
+            <div class="row align-items-center hospital-list">
+              <div class="col-4">
+              <h5><%= f.radio_button :hospital_id, hospital.id %>
+              <%= hospital.name %></h5>
               </div>
-            <% end %>
+              <div class="col-8">
+                <p class="addr text-left">所在地：
+                〒<%= hospital.postcode.to_s + hospital.prefecture_name + hospital.address_city + hospital.address_street %><br>
+                 電話：<%= hospital.phone %></p>
+              </div>
+            </div>
+          <% end %>
             <div class="row justify-content-center mt-3">
               <div class="col">
-            <%= f.submit "決定", class: "pull-right", class: "btn-hospital" %>
+                <%= f.submit "決定", class: "pull-right", class: "btn-hospital" %>
               </div>
             </div>
         <% end %>
@@ -56,6 +55,3 @@
   <div class="col">
   </div>
 </div>
-
-
-

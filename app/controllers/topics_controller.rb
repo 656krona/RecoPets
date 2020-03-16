@@ -12,9 +12,14 @@ class TopicsController < ApplicationController
     @topics_all = Topic.all
     @topics_count = @topics_all.count
     @categories = Category.where(category_status: 0)
-    @categories = Category.all
     end
   end
+
+  def new
+    @topic = Topic.new
+    @categories = Category.where(category_status: 0)
+  end
+
 
   def create
     @topic = Topic.new(topic_params)
@@ -23,6 +28,7 @@ class TopicsController < ApplicationController
     if @topic.save #入力されたデータをdbに保存する。
       redirect_to topics_path, notice: "トピックが作成されました!"
     else
+      #binding.pry
       @topics = Topic.all
       @categories = Category.all
       render 'index'

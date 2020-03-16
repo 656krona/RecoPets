@@ -10,17 +10,20 @@ class RecordsController < ApplicationController
     @hospitals = Hospital.all
     @pet = Pet.find(params[:pet_id])
     @record = Record.find(params[:id])
-    @hospital = Hospital.find_by(id: params[:hospital_id])
-    #hospitalcontroller削除予定
+    # binding.pry
   end
 
   def update
     @pet = Pet.find(params[:pet_id])
     @record = Record.find(params[:id])
+    @hospital = Hospital.find_by(id: params[:hospital_id])
     @records = @pet.records
     @record.update(record_params)
-    #edit_pet_record_path(@pet,@record)
+    if params[:record][:hospital_id].nil?
     redirect_to pet_path(@pet)
+    elsif !params[:record][:hospital_id].nil?
+    redirect_to edit_pet_record_path(@pet,@record)
+    end
   end
 
   private

@@ -21,11 +21,11 @@
             <div class="col-10 topic-form">
                 <div class="row text-left">
                   <div class="col-12">
-                    <%= form_with model: topic, url: topics_path, method: :post do |f| %>
-                    <% if topic.errors.any? %>
-                      <h3><%= topic.errors.count %>error occurrence</h3><!--エラーメッセ-->
+                    <%= form_with model: @topic, url: topics_path, method: :post do |f| %>
+                    <% if @topic.errors.any? %>
+                      <h3><%= @topic.errors.count %>error occurrence</h3><!--エラーメッセ-->
                       <ul>
-                        <% topic.errors.full_messages.each do |message| %>
+                        <% @topic.errors.full_messages.each do |message| %>
                         <li><%= message %></li>
                         <% end %>
                       </ul>

@@ -34,15 +34,13 @@
               <!-- 病院名 -->
               <div class="col-12 col-md-10 text-left mt-3">
                 <% if @record.hospital_id == nil %>
-                病院名：選択してください
-                <% elsif params[:hospital_id] == nil %>
-                病院名：<%= @record.hospital.name %>
+                  病院名：選択してください
                 <% elsif @record.hospital_id != nil %>
-                病院名：<%= @hospital.name %>
+                  病院名：<%= @record.hospital.name %>
                 <% end %>
               </div>
             </div>
-        <!-- 履歴入力フォームー -->
+            <!-- 履歴入力フォームー -->
             <div class="row mt-3">
               <div class="col-12">
                 <%= f.text_area :history, class: 'form-control', rows: 10, placeholder: "メモを入力", autofocus: true %>
