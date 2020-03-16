@@ -1,31 +1,38 @@
 <div class="row justify-content-center topic-wrap">
   <div class="col-12 col-md-8 topic-content mr-2">
     <div class="row">
-      <div class="col-12 topic-head">
-        <h3 class="topic-head-text">トピック一覧</h3>
+      <div class="col-12 topic-head pb-4">
+        <%= link_to topics_path, class: "topic-head-text" do %>
+          <h3 class="topic-head-text">トピック一覧</h3>
+        <% end %>
       </div>
     </div>
     <% @topics.each do |topic| %>
-      <div class="row align-items-center">
+      <div class="row align-items-center pt-4 pb-4 topic-list">
         <div class="col-2">
-          <%= attachment_image_tag(topic, :topic_image, :fill, 50, 50, fallback: "no-image.jpg", size: '100x100') %>
+          <%= attachment_image_tag(topic, :topic_image, :fill, 50, 50, fallback: "no_image.jpg", size: '50x50') %>
         </div>
         <div class="col-10">
-        <h5 class="topic-title"><%= topic.title %></h5>
+          <div class="row align-items-center topic-info">
+            <i class="fas fa-comment-dots fa-1x"></i>
+            コメント数
+            作成日
+          </div>
+          <div class="row">
+            <h3 class="topic-title"><%= topic.title %></h3>
+          </div>
+          <div class="row">
+            <%= link_to '参考サイト', "#{topic.url}", class:"btn btn-outline-info btn-sm" %>
+          </div>
         </div>
-        <div class="col-8">
       </div>
     <% end %>
 
   </div>
   <div class="col-12 col-md-3 ml-2 side-content">
-    <!---- トピック作成モーダル ----->
     <div class="row mt-4">
-      <button type="button" class="btn-block btn-topic" data-toggle="modal" data-target="#hospital">
-        <%= link_to "トピックを作成", new_topic_path %>
-      </button>
+        <%= link_to "トピックを作成", new_topic_path, class:"btn btn-defalt btn-block btn-topic text-center" %>
     </div>
-    <%#= render 'topics/modal', topic: @topic %>
     <div class="row category-content mt-3">
       <table class="table">
         <thead>
