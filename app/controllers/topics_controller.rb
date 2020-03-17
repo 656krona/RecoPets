@@ -3,11 +3,11 @@ class TopicsController < ApplicationController
 
   def index
     if params[:category_id] != nil
-    @topics = Topic.where(category_id: params[:category_id]).page(params[:page]).reverse_order
+    @topics = Topic.where(category_id: params[:category_id]).page(params[:page])
     @categories = Category.where(category_status: 0)
     @category = Category.find(params[:category_id])
     else
-    @topics = Topic.page(params[:page]).reverse_order
+    @topics = Topic.page(params[:page])
     @categories = Category.where(category_status: 0)
     end
   end

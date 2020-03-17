@@ -1,7 +1,7 @@
 <% comments.each do |comment| %>
-  <div class="row align-items-center pt-4 pb-4 topic-list">
+  <div class="row align-items-center pt-4 pb-4 comment-list">
     <div class="col">
-      <div class="row align-items-center topic-info">
+      <div class="row align-items-center comment-info">
         <%= comment.user.name %>
         <%= I18n.l(comment.created_at, format: :short) %>
       </div>

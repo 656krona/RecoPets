@@ -1,8 +1,9 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @topic = Topic.find(params[:topic_id])
-    @comments = Comment.where(topic_id: params[:topic_id]).page(params[:page]).reverse_order
+    @comments = Comment.where(topic_id: params[:topic_id]).page(params[:page])
     @categories = Category.where(category_status: 0)
     @comment = Comment.new(topic_id: @topic.id)
   end

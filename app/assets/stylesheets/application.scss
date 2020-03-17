@@ -328,6 +328,11 @@ header {
 
     .topic-list {
       border-bottom: solid 1px #ccc;
+      text-decoration: none;
+
+      &:hover {
+        background: #efefef;
+      }
 
       .topic-info {
         color: #aaa;
@@ -399,6 +404,16 @@ header {
   }
 
 }
+
+/*-- comment --*/
+.comment-list {
+  border-bottom: solid 1px #ccc;
+
+  .comment-info {
+    color: #aaa;
+  }
+}
+
 
 .btn-comment {
   @include sq-button;
