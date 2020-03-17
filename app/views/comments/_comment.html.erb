@@ -1,0 +1,24 @@
+<% comments.each do |comment| %>
+  <div class="row align-items-center pt-4 pb-4 comment-list">
+    <div class="col">
+      <div class="row align-items-center comment-info">
+        <%= comment.user.name %>
+        <%= I18n.l(comment.created_at, format: :short) %>
+      </div>
+      <div class="row mt-2">
+        <h5><%= comment.comment %></h5>
+      </div>
+      <div class="row">
+        <% if !comment.url.empty? %>
+          <%= link_to "#{comment.url}", class:"btn btn-outline-info btn-sm" do%>
+            <%= comment.url.truncate(27) %>
+          <% end %>
+        <% else %>
+        <% end %>
+      </div>
+      <div class="row">
+      <%= attachment_image_tag(comment, :comment_image, :fill, 300, 200, class: "rounded") %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :pets, dependent: :destroy
   has_many :topics
+  has_many :comments
 end

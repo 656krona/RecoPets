@@ -27,7 +27,7 @@
             </div>
             <% end %>
         </div>
-        <%= form_with model: @record, url: pet_record_path(@pet,@record) do |f| %>
+        <%= form_with model: @record, url: pet_record_path(@pet,@record), local: true do |f| %>
           <% @hospitals.each do |hospital| %>
             <div class="row align-items-center hospital-list">
               <div class="col-4">

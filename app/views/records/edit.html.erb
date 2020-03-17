@@ -12,7 +12,7 @@
       </li>
     </ul>
     <!-- タブ式入力フォーム -->
-    <%= form_with model: @record, url: pet_record_path(@pet,@record) do |f| %>
+    <%= form_with model: @record, url: pet_record_path(@pet,@record), local: true do |f| %>
     <div class="tab-content">
       <!--通院履歴記録タブ-->
       <div id="history" class="tab-pane active">
