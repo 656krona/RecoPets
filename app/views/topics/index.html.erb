@@ -8,24 +8,23 @@
       </div>
     </div>
     <% @topics.each do |topic| %>
-      <div class="row align-items-center pt-4 pb-4 topic-list">
-        <div class="col-2">
-          <%= attachment_image_tag(topic, :topic_image, :fill, 50, 50, fallback: "no_image.jpg", size: '50x50') %>
+      <%= link_to topic_comments_path(topic) do %>
+        <div class="row align-items-center pt-4 pb-4 topic-list">
+          <div class="col-2">
+            <%= attachment_image_tag(topic, :topic_image, :fill, 50, 50, fallback: "no_image.jpg", size: '50x50') %>
+          </div>
+          <div class="col-10">
+            <div class="row align-items-center topic-info">
+              <i class="fas fa-comment-dots fa-1x"></i>
+              <%= topic.comments.count %>コメント
+              <%= I18n.l(topic.created_at, format: :short) %>
+            </div>
+            <div class="row">
+              <h3 class="topic-title"><%= topic.title %></h3>
+            </div>
+          </div>
         </div>
-        <div class="col-10">
-          <div class="row align-items-center topic-info">
-            <i class="fas fa-comment-dots fa-1x"></i>
-            コメント数
-            作成日
-          </div>
-          <div class="row">
-            <h3 class="topic-title"><%= topic.title %></h3>
-          </div>
-          <div class="row">
-            <%= link_to '参考サイト', "#{topic.url}", class:"btn btn-outline-info btn-sm" %>
-          </div>
-        </div>
-      </div>
+      <% end %>
     <% end %>
 
   </div>
@@ -55,6 +54,24 @@
         </tbody>
       </table>
     </div>
+
+    <span id="back">
+      <a href="#">
+        <i class="fas fa-arrow-circle-up fa-3x"></i>
+      </a>
+    </span>
+    <script>
+      $(function() {
+
+        $('#back a').on('click',function(){
+          $('body, html').animate({
+            scrollTop:0
+            }, 800);
+              return false;
+          });
+
+        });
+    </script>
 
   </div>
 </div>
