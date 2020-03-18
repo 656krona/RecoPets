@@ -16,7 +16,7 @@
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
         <%= header_link_item('通院履歴', root_path) %>
-        <%= header_link_item('在庫管理', root_path) %>
+        <%= header_link_item('在庫管理', items_path) %>
         <%= header_link_item('掲示板', topics_path) %>
         <%= header_link_item('マイページ', '#') %>
         <%= header_link_item('ログアウト', destroy_user_session_path, method: :delete) %>
