@@ -42,8 +42,9 @@ ActiveRecord::Schema.define(version: 2020_03_17_094218) do
 
   create_table "items", force: :cascade do |t|
     t.integer "user_id"
-    t.string "name"
-    t.integer "days"
+    t.string "name", null: false
+    t.integer "days", null: false
+    t.integer "amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
