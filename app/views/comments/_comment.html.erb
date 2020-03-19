@@ -1,5 +1,5 @@
 <% comments.each do |comment| %>
-  <div class="row align-items-center pt-4 pb-4 comment-list">
+  <div class="row align-items-center py-4 px-3 comment-list">
     <div class="col">
       <div class="row align-items-center comment-info">
         <%= comment.user.name %>
@@ -18,6 +18,11 @@
       </div>
       <div class="row">
       <%= attachment_image_tag(comment, :comment_image, :fill, 300, 200, class: "rounded") %>
+      </div>
+      <div id="likes_buttons_<%= comment.id %>" class="row">
+        <div class = "col text-right">
+          <%= render 'likes/like', topic: topic, comment: comment %>
+        </div>
       </div>
     </div>
   </div>
