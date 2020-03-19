@@ -1,13 +1,20 @@
 <header class="py-4">
   <div class="container text-center">
-    <a class="header-logo" href="/">
+    <% if user_signed_in? %>
+    <a class="header-logo" href="/pets"></a>
       <%= image_tag 'logo.svg', class: "header-logo" %>
-    </a>
+    <% else %>
+      <%= image_tag 'logo.svg', class: "header-logo" %>
+    <% end %>
   </div>
 </header>
-<nav class="navbar navbar-expand-md navbar-dark sticky-top mb-3" style="background-color: #8dc9b4;">
+<nav class="navbar navbar-expand-md navbar-dark sticky-top" style="background-color: #8dc9b4;">
   <div class="container">
+    <% if user_signed_in? %>
     <a class="navbar-brand" href="/pets">RecoPets</a>
+    <% else %>
+    <a class="navbar-brand" href="/">RecoPets</a>
+    <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,7 +22,8 @@
     <div class="collapse navbar-collapse" id="navbar-content">
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
-        <%= header_link_item('通院履歴', root_path) %>
+        <%#= header_link_item('通院履歴', root_path) %>
+        <%= header_link_item('記録', pets_path) %>
         <%= header_link_item('在庫管理', items_path) %>
         <%= header_link_item('掲示板', topics_path) %>
         <%= header_link_item('マイページ', '#') %>
