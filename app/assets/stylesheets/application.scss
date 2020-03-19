@@ -424,5 +424,39 @@ header {
     }
 }
 
+/* ---- item ----- */
+/*-- index --*/
+.item-content {
+  @include box;
+  padding: 50px 50px;
 
+    .btn-item {
+      @include circ-button;
+      background: $pet;
+    }
 
+    .item-list {
+     @include box;
+     min-height: 0;
+
+      .btn-trash {
+        color: #aaa;
+        background: #eee;
+
+      /*ホバー時のデザイン*/
+        &:hover {
+          color: #fff;
+          background: #ccc;
+        }
+
+      }
+    }
+
+}
+
+/*-- edit --*/
+.item-edit {
+  @include box;
+  padding: 50px 100px;
+
+}
