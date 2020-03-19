@@ -1,0 +1,38 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">アイテム新規登録</h5>
+    </div>
+    <%= form_with model: item, method: :post, remote: true do |f| %>
+      <div class="error-message"></div>
+      <div class="modal-body">
+        <div class = "form-row">
+          <div class="col-12">
+            <%= f.label :name, "商品名を入力してください" %>
+            <%= f.text_area :name, class: 'form-control', rows: 1, placeholder: "商品名を入力", autofocus: true %>
+          </div>
+        </div>
+        <div class = "form-row">
+          <div class="col-7 mt-4">
+            <%= f.label :days, "大体何日くらいもちますか？" %>
+            <%= f.text_area :days, class: 'form-control', rows:1, placeholder: "日数を入力", autofocus: true %>
+          </div>
+          <div class="col">
+          </div>
+        </div>
+        <div class = "form-row">
+          <div class="col-7 mt-4">
+            <%= f.label :amount, "残りはどのくらいですか？" %>
+            <%= f.text_area :amount, class: 'form-control', rows: 1, placeholder: "％で入力", autofocus: true %>
+          </div>
+          <div class="col">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+        <%= f.submit "登録", class: "btn btn-info btn-topic"%>
+      </div>
+    <% end %>
+  </div>
+</div>

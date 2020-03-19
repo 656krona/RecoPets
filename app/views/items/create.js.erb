@@ -1,0 +1,4 @@
+$('textarea').val('');
+$('#post').modal('hide');
+//$('#item_<%= current_user.id %>').html("<%= j(render 'items/item', items: @items ) %>");
+$('#item').html("<%= j(render 'items/item', items: @items ) %>");
