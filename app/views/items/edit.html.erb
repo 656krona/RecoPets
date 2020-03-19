@@ -1,0 +1,46 @@
+<div class="row align-items-center">
+  <div class="col">
+  </div>
+  <div class="col-8 item-edit">
+    <div class="row my-4">
+      <div class="col-12">
+        <h3>アイテム編集</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+      <%= form_with model: @item, method: :patch, local: true do |f| %>
+        <% if @item.errors.any? %>
+          <h3><%= @item.errors.count %>error occurrence</h3>
+          <ul>
+            <% @item.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        <div class = "form-row">
+          <div class="col-12">
+            <%= f.label :name, "商品名を入力してください" %>
+            <%= f.text_area :name, class: 'form-control', rows: 1, placeholder: "商品名を入力", autofocus: true %>
+          </div>
+        </div>
+        <div class = "form-row">
+          <div class="col-12 mt-4">
+            <%= f.label :days, "大体何日くらいもちますか？" %>
+            <%= f.text_area :days, class: 'form-control', rows:1, placeholder: "日数を入力" %>
+          </div>
+        </div>
+        <div class = "form-row">
+          <div class="col-12 mt-4">
+            <%= f.label :amount, "残りはどのくらいですか？" %>
+            <%= f.text_area :amount, class: 'form-control', rows: 1, placeholder: "％で入力" %>
+          </div>
+        </div>
+        <%= f.submit "登録", class: "btn btn-info btn-block mt-4"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+  </div>
+</div>

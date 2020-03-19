@@ -12,6 +12,7 @@ Pet.find_or_create_by(id:1, user_id: 1, name:"まろん")
 
 Hospital.find_or_create_by(id:1, name: "もりやま動物病院", postcode: "111-1111", prefecture_name: "埼玉県", address_city: "さいたま市浦和区", address_street: "岸町3丁目5番地", phone: "048-000-0000")
 Hospital.find_or_create_by(id:2, name: "バード・クリニック", postcode: "111-1111", prefecture_name: "鹿児島県", address_city: "鹿児島市", address_street: "和田1丁目1番地", phone: "099-000-0000")
+Hospital.find_or_create_by(id:3, name: "さやま動物病院", postcode: "111-1111", prefecture_name: "埼玉県", address_city: "さいたま市常盤区", address_street: "3丁目5番地", phone: "048-000-0000")
 
 Category.find_or_create_by(id:1, name: "犬")
 Category.find_or_create_by(id:2, name: "猫")
