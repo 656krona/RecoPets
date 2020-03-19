@@ -378,10 +378,11 @@ header {
       bottom: 50px;
 
       i {
-        color: $app-color;
+        color: $auth;
+        opacity: 50%;
 
         &:hover {
-        color: $app-color;
+        color: $auth-action;
         }
 
       }
