@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   end
 
   resources :topics, only: [:index, :new, :create]do
-    resources :comments, only: [:index, :create, :destroy]
+    resources :comments, only: [:index, :create, :destroy] do
+      resource :likes, only: [:create, :destroy]
+    end
   end
 
   resources :items, only: [:index, :create, :edit, :update, :destroy]
