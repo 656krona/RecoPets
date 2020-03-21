@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
   def index
-    @pets = Pet.all
+    @pets = Pet.where(user_id: current_user.id)
   end
 
   def new
