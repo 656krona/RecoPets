@@ -20,9 +20,11 @@ class RecordsController < ApplicationController
     @records = @pet.records
     @record.update(record_params)
     if params[:record][:hospital_id].nil?
-    redirect_to pet_path(@pet)
-    elsif !params[:record][:hospital_id].nil?
-    redirect_to edit_pet_record_path(@pet,@record)
+      # redirect_to pet_path(@pet) + "?start_date=#{@record.start_time.strftime('%Y-%m-%d')"
+      redirect_to "/pets/#{@pet.id}/?start_date=#{@record.start_time.strftime('%Y-%m-%d')}"
+    else
+      # redirect_to edit_pet_record_path(@pet,@record)
+      redirect_to "/pets/#{@pet.id}/records/#{@record.id}/edit?start_date=#{@record.start_time.strftime('%Y-%m-%d')}"
     end
   end
 
