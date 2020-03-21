@@ -4,24 +4,19 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :days, presence: true
 
-  def count
-    require = 'date'
+  def remaining_per
+    update_elapsed_days = (Date.current - updated_at.to_date).to_i # 更新してからの経過日数
+
     if amount == 100
-      d1 = Date.today
-      d2 = updated_at.to_date
-      #d3 = d1 + days
-      d3 = (d1 - d2).to_i
-      (100 - (d3/days.to_f.round(2)) * 100).round
-      #binding.pry
+      result = (update_elapsed_days / days) * 100 - 100 # 残在庫
     elsif amount != 100
-      p1 = (100 / days.to_f.round(2)).round
-      d1 = Date.today
-      d2 = updated_at.to_date
-      d3 = amount / p1#あと何日もつかdaysと同義
-      d4 = (d1 - d2).to_i
-      (amount - (d4/d3.to_f.round(2)) * 100).round
-      #binding.pry
+      per_one_day = 100 / days
+      remaining_days = amount / per_one_day #あと何日もつかdaysと同義
+      # result = (amount - (update_elapsed_days / d3.to_f.round(2)) * 100).round
+      result = (update_elapsed_days / remaining_days.to_f.round(2) * 100 - amount).round
     end
+
+    result.round(2).abs # 小数点2位で四捨五入
   end
 
 end
