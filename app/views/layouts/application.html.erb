@@ -10,10 +10,12 @@
   </head>
 
   <body>
-    <%= render 'header' %>
-    <div class="container mt-3">
-      <%= yield %>
+    <div id="wrap">
+      <%= render 'header' %>
+      <div class="container my-3">
+        <%= yield %>
+      </div>
+      <%= render 'footer' %>
     </div>
-    <%= render 'footer' %>
   </body>
 </html>
