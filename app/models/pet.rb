@@ -3,7 +3,7 @@ class Pet < ApplicationRecord
   has_many :records, dependent: :destroy
   attachment :pet_image
 
-  validates :name, presence: true
+  validates :name, presence: {message: "が入力されていません"}
 
   def create_a_month_records(date_str)
     date = date_str.present? ? date_str.to_date : Date.current
