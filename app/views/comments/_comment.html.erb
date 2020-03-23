@@ -19,11 +19,12 @@
       <div class="row">
       <%= attachment_image_tag(comment, :comment_image, :fill, 300, 200, class: "rounded") %>
       </div>
-      <div id="likes_buttons_<%= comment.id %>" class="row">
-        <div class = "col text-right">
-          <%= render 'likes/like', topic: topic, comment: comment %>
+      <div class="row text-right">
+        <div id="likes_buttons_<%= comment.id %>" class="col">
+            <%= render 'likes/like', topic: topic, comment: comment %>
         </div>
       </div>
     </div>
   </div>
 <% end %>
+<%= render 'layouts/error_messages', model: comment %>
