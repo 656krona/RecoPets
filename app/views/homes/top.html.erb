@@ -4,20 +4,64 @@
     <title>RecoPets</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
   </head>
 
-  <body>
-    <div class="row">
-      <div class="col no-gutters">
-        <%= image_tag('top2.jpg', class: "top-img img-fluid") %>
+  <body class="body-wrap">
+    <%= render 'header' %>
+
+  <main>
+    <section id="mv">
+    <!--<div class= "jumbotron">-->
+      <div class= "container key-visual">
+        <h1 class= "display-4 catch">Living friendly with pets</h1>
+        <p class="my-4 head-text">
+          ペットを飼うすべての方へ<br>
+          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX<br>
+          XXXXXXXXXXXXXXXXXX
+        </p>
+        <%= link_to 'はじめる »', new_user_registration_path, class: "btn btn-info btn-lg" %>
+      </div>
+    <!--</div>-->
+    </section>
+    <div class="container pt-5">
+      <div class="row justify-content-center py-5">
+        <h1 class="service-content">Service</h1>
+      </div>
+      <div class="row py-2">
+        <div class="col-12 col-md-4 text-center py-5">
+          <i class="fas fa-book-medical fa-5x"></i>
+          <h2 class="my-4">Record</h2>
+          <p>ペットの体調・通院内容など<br>
+            カレンダー形式で毎日いつでも簡単に<br>
+            日記のように記録ができます
+          </p>
+        </div>
+        <div class="col-12 col-md-4 text-center py-5">
+          <i class="fab fa-stack-overflow fa-5x"></i>
+          <h2 class="my-4">Stock</h2>
+          <p>消耗品の残量を管理<br>
+            商品名と何日もつかを入力するだけで<br>
+            買い漏れを防ぎます
+          </p>
+        </div>
+        <div class="col-12 col-md-4 text-center py-5">
+          <i class="fas fa-comments fa-5x"></i>
+          <h2 class="my-4">Board</h2>
+          <p>病気やケガなど初めてのことや<br>
+            ペットのことで悩んだときは<br>
+            掲示板で仲間と気軽に情報交換をしましょう
+          </p>
+        </div>
+      </div>
+      <div class="row justify-content-center pt-3 pb-5">
+      <%= link_to 'もっと詳しく »', homes_about_path, class: "btn btn-outline-info btn-lg" %>
       </div>
     </div>
+  </main>
+  <%= render 'footer' %>
   </body>
-
 </html>
-
-
 

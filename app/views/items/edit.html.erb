@@ -32,8 +32,8 @@
         </div>
         <div class = "form-row">
           <div class="col-12 mt-4">
-            <%= f.label :amount, "残りはどのくらいですか？" %>
-            <%= f.text_area :amount, class: 'form-control', rows: 1, placeholder: "％で入力" %>
+            <%= f.label :amount, "残りはあとどのくらいですか？" %>
+            <%= f.text_area :amount, class: 'form-control', rows: 1, placeholder: "％で入力", value: @item.remaining_per %>
           </div>
         </div>
         <%= f.submit "登録", class: "btn btn-info btn-block mt-4"%>

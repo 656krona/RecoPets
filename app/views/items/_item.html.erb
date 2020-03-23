@@ -5,7 +5,13 @@
     </div>
     <div class="col-3 py-0 px-0">
       <div class="progress">
-        <div class="progress-bar bg-success" role="progress-bar" style="width: <%= item.count %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= item.count %>%</div>
+        <% if item.remaining_per >= 60 %>
+          <div class="progress-bar bg-success" role="progress-bar" style="width: <%= item.remaining_per %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= item.remaining_per %>%</div>
+        <% elsif item.remaining_per >= 20 %>
+          <div class="progress-bar bg-warning" role="progress-bar" style="width: <%= item.remaining_per %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= item.remaining_per %>%</div>
+        <% else %>
+          <div class="progress-bar bg-danger" role="progress-bar" style="width: <%= item.remaining_per %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= item.remaining_per %>%</div>
+        <% end %>
       </div>
     </div>
     <div class="col py-0 px-0">

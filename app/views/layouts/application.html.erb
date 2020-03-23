@@ -10,10 +10,17 @@
   </head>
 
   <body>
-    <%= render 'header' %>
-    <div class="container">
-      <%= yield %>
+    <div id="wrap">
+      <%= render 'header' %>
+      <div class="container my-3">
+        <% if flash[:success] %>
+          <div class="flash">
+            <%= flash[:success] %>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div>
+      <%= render 'footer' %>
     </div>
-    <%= render 'footer' %>
   </body>
 </html>

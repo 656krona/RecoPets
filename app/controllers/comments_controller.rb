@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create]
 
   def index
     @topic = Topic.find(params[:topic_id])
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:success] = "コメントが投稿されました"
     else
-      @comments = Comment.where(id: @topic)
+      @comments = Comment.where(topic_id: @topic)
     end
   end
 

@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
 
   def create
     @topic = Topic.find(params[:topic_id])
