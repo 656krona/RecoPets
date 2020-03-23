@@ -27,9 +27,8 @@ class TopicsController < ApplicationController
       flash[:success] = "トピックが作成されました!"
     else
       #binding.pry
-      @topics = Topic.all
       @categories = Category.where(category_status: 0)
-      render 'index'
+      render 'new'
     end
   end
 
