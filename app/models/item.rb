@@ -1,8 +1,9 @@
 class Item < ApplicationRecord
   belongs_to :user
 
-  validates :name, presence: true
-  validates :days, presence: true
+  validates :name, presence: {message: "が入力されていません"}
+  validates :days, presence: {message: "が入力されていません"}
+  validates :amount, presence: {message: "が入力されていません"}
 
   def remaining_per
     update_elapsed_days = (Date.current - updated_at.to_date).to_i # 更新してからの経過日数
