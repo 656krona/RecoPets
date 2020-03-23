@@ -1,2 +1,71 @@
-<h1>Homes#about</h1>
-<p>Find me in app/views/homes/about.html.erb</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RecoPets</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+  </head>
+
+  <body class="body-wrap">
+    <%= render 'header' %>
+
+  <main>
+    <section id="sv">
+    <!--<div class= "jumbotron">-->
+      <div class= "container about-visual">
+        <h1 class= "display-4 catch">About RecoPets</h1>
+        <h3 class="head-text">
+          - RecoPetsとは
+        </h3>
+      </div>
+    <!--</div>-->
+    </section>
+    <div class="container pt-5">
+      <div class="row justify-content-center py-5">
+        <h1 class="service-content">About</h1>
+      </div>
+      <div class="row align-items-center py-2">
+        <div class="col-12 col-md-6 text-center">
+          <i class="fas fa-book-medical fa-5x"></i>
+        </div>
+        <div class="col-12 col-md-6">
+          <h2 class="my-4">Record</h2>
+          <p>ペットの体調・通院内容など<br>
+            カレンダー形式で毎日いつでも簡単に<br>
+            記録ができます
+          </p>
+        </div>
+      </div>
+      <div class="row align-items-center py-2">
+        <div class="col-12 col-md-6 text-right">
+          <h2 class="my-4">Record</h2>
+          <p>ペットの体調・通院内容など<br>
+            カレンダー形式で毎日いつでも簡単に<br>
+            記録ができます
+          </p>
+        </div>
+        <div class="col-12 col-md-6 text-center">
+          <i class="fas fa-book-medical fa-5x"></i>
+        </div>
+      </div>
+      <div class="row align-items-center py-2">
+        <div class="col-12 col-md-6 text-center">
+          <i class="fas fa-book-medical fa-5x"></i>
+        </div>
+        <div class="col-12 col-md-6">
+          <h2 class="my-4">Record</h2>
+          <p>ペットの体調・通院内容など<br>
+            カレンダー形式で毎日いつでも簡単に<br>
+            記録ができます
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <%= render 'footer' %>
+  </body>
+</html>
+
