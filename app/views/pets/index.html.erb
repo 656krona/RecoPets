@@ -8,12 +8,13 @@
       <div class="col-8">
         <h3 class="select-title">ペットを選択してください</h3>
 
-        <div class="d-flex justify-content-center">
+        <div class="row d-flex flex-wrap justify-content-center">
           <% @pets.each do |pet| %>
-
-            <%= link_to pet_path(pet.id), class: "pet-list" do %>
-                <%= attachment_image_tag(pet, :pet_image, :fill, 120, 120, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg",:size =>'50x50') %><br>
+            <%= link_to pet_path(pet.id), class: "col-3 pet-list mb-3" do %>
+                <%= attachment_image_tag(pet, :pet_image, :fill, 120, 120, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg",:size =>'50x50') %>
+              <div class="col">
               <h4 class="pet-name"><%= pet.name %></h4>
+            </div>
             <% end %>
           <% end %>
         </div>
