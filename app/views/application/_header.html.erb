@@ -26,7 +26,7 @@
         <%= header_link_item('記録', pets_path) %>
         <%= header_link_item('在庫管理', items_path) %>
         <%= header_link_item('掲示板', topics_path) %>
-        <%= header_link_item('マイページ', '#') %>
+        <%= header_link_item('マイページ', user_path(current_user.id)) %>
         <%= header_link_item('ログアウト', destroy_user_session_path, method: :delete) %>
         <% else %>
         <%= header_link_item('Recopetsとは', homes_about_path) %>
