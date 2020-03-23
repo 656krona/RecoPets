@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'users/show'
 # --------------- user ---------------
 # devise
   devise_for :users, :controllers => {
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
   end
 
   resources :items, only: [:index, :create, :edit, :update, :destroy]
+  resources :users, only: [:show]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
