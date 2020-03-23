@@ -60,13 +60,20 @@
               </div>
               <div class="row mt-3">
                 <div class="col text-left">
-                  <%= f.attachment_field :record_image %>
+                  <div>
+                    <% if @record.record_image != nil %>
+                    <%= attachment_image_tag @record, :record_image, src: "", id: "item_image", size: "300x200", alt:"Image preview", class: "item_prev", fallback: "no_image.jpg" %>
+                    <% end %>
+                  </div>
+                  <div>
+                    <%= f.attachment_field :record_image, id: "post_img" %>
+                  </div>
                 </div>
+
               </div>
           </div>
         </div>
       </div>
-
     </div>
     <!-- タブ式入力フォームここまで -->
     <div class="row float-right align-items-center mt-3">
@@ -81,3 +88,21 @@
   </div>
 
 </div>
+
+<script>
+  $(function(){
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('#item_image').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    $("#post_img").change(function(){
+      readURL(this);
+    });
+})
+
+</script>
