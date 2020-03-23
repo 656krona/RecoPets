@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:success] = "コメントが投稿されました"
     else
-      @comments = Comment.where(id: @topic)
+      @comments = Comment.where(topic_id: @topic)
     end
   end
 
