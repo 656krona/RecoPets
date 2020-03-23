@@ -22,7 +22,7 @@
             </div>
             <div class="field pb-3">
               <div>
-              <%= attachment_image_tag @record, :record_image, src: "", id: "pet_image", size: "200x200", alt:"Image preview", class: "item_prev rounded-circle mb-4", fallback: "no_image_pet.svg", :size =>'200x200' %>
+              <%= attachment_image_tag @pet, :pet_image, src: "", id: "pet_image", size: "200x200", alt:"Image preview", class: "item_prev rounded-circle mb-4", fallback: "no_image_pet.svg", :size =>'200x200' %>
               </div>
               <div>
                 <%= f.attachment_field :pet_image, id: "post_img" %>
