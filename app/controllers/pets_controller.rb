@@ -34,7 +34,26 @@ class PetsController < ApplicationController
     end
   end
 
+  def edit
+    @pet = Pet.find(params[:id])
+  end
+
+  def update
+    @pet = Pet.find(params[:id])
+    if @pet.update(pet_params)
+      flash[:success] = "ペットが編集されました！"
+      redirect_to user_path(current_user.id)
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
+    @pet = Pet.find(params[:id])
+    if @pet.destroy
+    flash[:success] = "ペットを削除しました"
+    redirect_to user_path(current_user.id)
+    end
   end
 
   private
