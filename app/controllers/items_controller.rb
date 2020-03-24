@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update]
 
   def index
     @items = current_user.items
@@ -40,6 +42,14 @@ class ItemsController < ApplicationController
   private
   def item_params
       params.require(:item).permit(:name, :days, :amount)
+  end
+
+  def correct_user
+    item = Item.find(params[:id])
+    user = User.find_by(id: item.user_id)
+    if current_user != user
+      redirect_to items_path
+    end
   end
 
 end
