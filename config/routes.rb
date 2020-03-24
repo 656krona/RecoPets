@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   root  'homes#top'
   get 'homes/about'
 
-  resources :pets, only: [:index, :new, :show, :create, :destroy]do
+  resources :pets do
     resources :records, only: [:edit, :update]do
       member do
       get :select
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   end
 
   resources :items, only: [:index, :create, :edit, :update, :destroy]
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
