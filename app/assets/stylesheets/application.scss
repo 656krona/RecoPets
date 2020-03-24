@@ -511,7 +511,7 @@ header {
 /*-- index --*/
 .item-content {
   @include box;
-  padding: 50px 50px;
+  padding: 50px;
 
     .btn-item {
       @include circ-button;
@@ -542,4 +542,17 @@ header {
   @include box;
   padding: 50px 100px;
 
+}
+
+/* ---- user ----- */
+/*-- show --*/
+.user-content {
+  @include box;
+  padding: 50px;
+
+  .user-info {
+    @include box;
+    padding: 50px;
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,.1);
+  }
 }
