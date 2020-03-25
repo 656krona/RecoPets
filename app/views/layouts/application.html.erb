@@ -13,11 +13,9 @@
     <div id="wrap">
       <%= render 'header' %>
       <div class="container my-3">
-        <% if flash[:success] %>
-          <div class="flash">
-            <%= flash[:success] %>
-          </div>
-        <% end %>
+        <div id="flash">
+          <%= render 'layouts/flash' %>
+        </div>
         <%= yield %>
       </div>
       <%= render 'footer' %>

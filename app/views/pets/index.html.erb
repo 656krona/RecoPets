@@ -11,7 +11,7 @@
         <div class="row d-flex flex-wrap justify-content-center">
           <% @pets.each do |pet| %>
             <%= link_to pet_path(pet.id), class: "col-3 pet-list mb-3" do %>
-                <%= attachment_image_tag(pet, :pet_image, :fill, 120, 120, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg",:size =>'50x50') %>
+                <%= attachment_image_tag(pet, :pet_image, :fill, 80, 80, format: 'jpeg', class: "rounded-circle", fallback: "no_image_pet.svg",:size =>'80x80') %>
               <div class="col">
               <h4 class="pet-name"><%= pet.name %></h4>
             </div>

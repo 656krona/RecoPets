@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.string :name, null: false
       t.integer :days, null: false
-      t.integer :amount, null: false
+      t.float :amount, null: false
 
       t.timestamps
     end
