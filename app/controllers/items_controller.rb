@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
     @items = current_user.items
     @item.user_id = current_user.id
     if @item.save
-      flash[:success] = "新しいアイテムが追加されました！"
+      flash.now[:success] = "新しいアイテムが追加されました！"
     else
       render :error
     end
