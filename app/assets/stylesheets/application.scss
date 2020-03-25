@@ -23,6 +23,7 @@ $auth: #398596;/*7EA6E0*/
 $auth-action: #76b0bd;/*#A9C4EB*/
 $pet: #f3a9a9;
 $reco: #FFA530;
+$reco-action: #F9BE78;
 $topic: #f6ae5f;
 $topic-action: #f3bc80;
 
@@ -364,6 +365,19 @@ header {
   .btn-record {
     @include sq-button;
     background-color: $reco;
+
+    &:hover {
+      background-color: $reco-action;
+      }
+  }
+
+  .btn-record-close {
+    @include sq-button;
+    background-color: grey;
+
+    &:hover {
+      background-color: #aaa;
+      }
   }
 
 }
