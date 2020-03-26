@@ -1,7 +1,13 @@
 <div class="simple-calendar">
-  <% if @plan_day.present? %>
-    <div class="text-right">通院予定日まであと<%= @plan_day %>日</div>
-  <% end %>
+  <div class="row align-items-center">
+    <div class="col text-left align-items-center mb-2">
+      <%= attachment_image_tag(@pet, :pet_image, :fill, 40, 40, format: 'jpeg', class: "rounded-circle", fallback: "no_image_pet.svg",:size =>'40x40') %>
+      <%= @pet.name %>
+    </div>
+      <% if @plan_day.present? %>
+        <div class="col text-right">通院予定日まであと<%= @plan_day %>日</div>
+      <% end %>
+  </div>
   <div class="row justify-content-center calendar-heading">
     <%= link_to t('simple_calendar.previous', default: '<<'), calendar.url_for_previous_view %>
     <span class="calendar-title px-3"><h4><%= start_date.year %>年 <%= start_date.month%>月</h4></span>
