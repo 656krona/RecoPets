@@ -28,4 +28,10 @@ Category.find_or_create_by(id:6, name: "その他小動物")
 Category.find_or_create_by(id:7, name: "爬虫類")
 Category.find_or_create_by(id:8, name: "動物病院")
 
+Item.find_or_create_by(id:1, user_id: 1, name: "ペットフード", days: 90, amount: 100 )
+Item.find_or_create_by(id:2, user_id: 1, name: "おやつ", days: 60, amount: 70 )
+Item.find_or_create_by(id:3, user_id: 1, name: "トイレシート", days: 60, amount: 100 )
+Item.find_or_create_by(id:4, user_id: 1, name: "消毒", days: 90, amount: 50 )
+Item.find_or_create_by(id:5, user_id: 1, name: "ささみ缶詰", days: 10, amount: 20 )
+
 
