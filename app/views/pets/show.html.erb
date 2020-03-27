@@ -10,7 +10,7 @@
           <% if record.memo.present? || record.record_image.present? %>
             <span class="text-left pt-3"><i class="fas fa-pencil-alt fa-1x"></i></span>
           <% end %>
-          <% if record.history.present? || record.hospital_id.present? %>
+          <% if record.content_type == true || record.history.present? || record.hospital_id.present? %>
             <span class="text-left pt-3"><i class="fas fa-clinic-medical fa-1x"></i></span>
           <% end %>
         </div>

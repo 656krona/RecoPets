@@ -61,8 +61,9 @@
               <div class="row mt-3">
                 <div class="col text-left">
                   <div>
+                    <div id="img-prev"></div>
                     <% if @record.record_image != nil %>
-                    <%= attachment_image_tag @record, :record_image, src: "", id: "item_image", size: "300x200", alt:"Image preview", class: "item_prev", fallback: "no_image.jpg" %>
+                    <%= attachment_image_tag @record, :record_image, size: "300x200" %>
                     <% end %>
                   </div>
                   <div>
@@ -96,7 +97,8 @@
       if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
-          $('#item_image').attr('src', e.target.result);
+          var html = `<img src="${e.target.result}" width="300" height="200">`
+          $('#img-prev').append(html);
         }
         reader.readAsDataURL(input.files[0]);
       }
@@ -104,6 +106,5 @@
     $("#post_img").change(function(){
       readURL(this);
     });
-})
-
+  })
 </script>
