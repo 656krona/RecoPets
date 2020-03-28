@@ -1,30 +1,36 @@
-<div class="row align-items-center pet-content">
-  <div class="col">
-  </div>
+<div class="row justify-content-center align-items-center pet-content">
   <div class="pet-select col-12">
     <div class="row justify-content-center">
-      <div class="col">
-      </div>
-      <div class="col-8">
-        <h3 class="select-title">ペットを選択してください</h3>
-
-        <div class="row d-flex flex-wrap justify-content-center">
-          <% @pets.each do |pet| %>
-            <%= link_to pet_path(pet.id), class: "col-3 pet-list mb-3" do %>
-                <%= attachment_image_tag(pet, :pet_image, :fill, 80, 80, format: 'jpeg', class: "rounded-circle", fallback: "no_image_pet.svg",:size =>'80x80') %>
-              <div class="col">
-              <h4 class="pet-name"><%= pet.name %></h4>
-            </div>
+      <% if @pets.present? %>
+        <div class="col-md-8">
+          <h3 class="select-title">ペットを選択してください</h3>
+          <div class="row d-flex flex-wrap justify-content-center">
+            <% @pets.each do |pet| %>
+              <%= link_to pet_path(pet.id), class: "col-md-3 pet-list m-3" do %>
+                  <%= attachment_image_tag(pet, :pet_image, :fill, 80, 80, format: 'jpeg', class: "rounded-circle", fallback: "no_image_pet.svg",:size =>'80x80') %>
+                <div class="col">
+                <h4 class="pet-name"><%= pet.name %></h4>
+              </div>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
+          <div class="row justify-content-center">
+          <%= link_to "ペットを登録する", new_pet_path, class:"btn btn-lg btn-pet" %>
+          </div>
         </div>
-
-      <%= link_to "ペットを登録する", new_pet_path, class:"btn btn-lg btn-pet" %>
-      </div>
-      <div class="col">
-      </div>
+      <% else %>
+        <div class="col-10 mt-5">
+          <div class="row justify-content-center pt-5">
+            <h3 class="select-title mb-5">ペットを登録してください</h3>
+          </div>
+          <div class="row justify-content-center">
+            <h4 class="select-title mb-0">登録が完了するとここにペットが表示されます</h4>
+          </div>
+          <div class="row justify-content-center">
+          <%= link_to "さっそく登録する", new_pet_path, class:"btn btn-lg btn-pet" %>
+          </div>
+        </div>
+      <% end %>
     </div>
-  </div>
-  <div class="col">
   </div>
 </div>

@@ -10,8 +10,6 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col">
-      </div>
       <div class="col-10">
         <h3 class="title-text">病院検索</h3>
         <div class="form-row justify-content-center align-items-center search-area">
@@ -30,11 +28,11 @@
         <%= form_with model: @record, url: pet_record_path(@pet,@record), local: true do |f| %>
           <% @hospitals.each do |hospital| %>
             <div class="row align-items-center hospital-list">
-              <div class="col-4">
+              <div class="col-md-4 text-left">
               <h5><%= f.radio_button :hospital_id, hospital.id %>
               <%= hospital.name %></h5>
               </div>
-              <div class="col-8">
+              <div class="col-md-8">
                 <p class="addr text-left">所在地：
                 〒<%= hospital.postcode.to_s + hospital.prefecture_name + hospital.address_city + hospital.address_street %><br>
                  電話：<%= hospital.phone %></p>
@@ -47,8 +45,6 @@
               </div>
             </div>
         <% end %>
-      </div>
-      <div class="col">
       </div>
     </div>
   </div>
