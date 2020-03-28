@@ -200,13 +200,14 @@ header {
   background-position: 90% 15%;
 
   .about-visual {
-    padding-top: 130px;
+    padding-top: 150px;
   }
 
   .catch {
     color: #fff;
     font-weight: 1000;
     font-family: $home-font;
+    text-shadow: 1px 2px 3px #ccc;
   }
 
   .head-text {
@@ -214,6 +215,7 @@ header {
     font-size: 35px;
     margin: 0;
     font-family: $home-font;
+    text-shadow: 1px 2px 3px #ccc;
   }
 
 }
@@ -286,7 +288,7 @@ header {
 
   .pet-select {
     @include box;
-    padding: 80px;
+    padding: 80px 0;
 
     .select-title {
       color: $pet;
@@ -371,7 +373,7 @@ header {
 
 .record-content {
   @include box;
-  padding: 50px 80px;
+  /*padding: 50px 80px;*/
 
   .record-form {
     padding: 10px;
@@ -522,6 +524,14 @@ header {
 }
 
 /*-- comment --*/
+.topic-title {
+  color: $topic;
+}
+
+.topic-text {
+  font-size: 18px;
+}
+
 .comment-list {
   border-bottom: solid 1px #ccc;
 
@@ -546,34 +556,48 @@ header {
   @include box;
   padding: 50px;
 
-    .btn-item {
-      @include circ-button;
-      background: $pet;
+  .item-heading {
+    color: $pet;
+  }
+
+  .item-text {
+    color: $pet;
+  }
+
+  .btn-item {
+    @include circ-button;
+    background: $pet;
+
+    &:hover {
+      background-color: transparent;
+      border: 2px solid $pet;
+      color: $pet;
     }
+  }
 
-    .item-list {
-     @include box;
-     min-height: 0;
+  .item-list {
+   @include box;
+   min-height: 0;
 
-      .btn-trash {
-        color: #aaa;
-        background: #eee;
+    .btn-trash {
+      color: #aaa;
+      background: #eee;
 
-      /*ホバー時のデザイン*/
-        &:hover {
-          color: #fff;
-          background: #ccc;
-        }
-
+    /*ホバー時のデザイン*/
+      &:hover {
+        color: #fff;
+        background: #ccc;
       }
+
     }
+  }
 
 }
 
 /*-- edit --*/
 .item-edit {
   @include box;
-  padding: 50px 100px;
+  padding: 50px;
 
 }
 

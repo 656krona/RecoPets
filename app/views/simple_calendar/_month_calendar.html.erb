@@ -1,11 +1,11 @@
 <div class="simple-calendar">
   <div class="row align-items-center">
-    <div class="col text-left align-items-center mb-2">
+    <div class="col-4 col-md-6 text-left align-items-center mb-2">
       <%= attachment_image_tag(@pet, :pet_image, :fill, 40, 40, format: 'jpeg', class: "rounded-circle", fallback: "no_image_pet.svg",:size =>'40x40') %>
       <%= @pet.name %>
     </div>
       <% if @plan_day.present? %>
-        <div class="col text-right">通院予定日まであと<%= @plan_day %>日</div>
+        <div class="col-8 col-md-6 text-right">通院予定日まであと<%= @plan_day %>日</div>
       <% end %>
   </div>
   <div class="row justify-content-center calendar-heading">
