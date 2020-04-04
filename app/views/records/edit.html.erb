@@ -18,21 +18,13 @@
       <div id="history" class="tab-pane active">
         <div class="row">
           <div class="col-12 record-form">
-            <div class="row">
-              <div class="col-6 text-left">
-                <%= f.check_box :content_type, value: 1 %>
-                <%= f.label :通院日に設定する %>
-              </div>
-              <div class="col">
-              </div>
-            </div>
             <div class="row align-items-center">
               <div class="col-12 col-md-2 text-left mt-3">
               <!-- 病院選択 -->
-                <%=link_to "病院を選ぶ", select_pet_record_path(@pet,@record), class:"btn btn-outline-secondary center-block" %>
+                <%=link_to "病院を選ぶ", select_pet_record_path(@pet,@record), class:"btn btn-outline-secondary center-block mb-3" %>
               </div>
               <!-- 病院名 -->
-              <div class="col-12 col-md-10 text-left mt-3">
+              <div class="col-12 col-md-10 text-left">
                 <% if @record.hospital_id == nil %>
                   病院名：選択してください
                 <% elsif @record.hospital_id != nil %>
@@ -40,10 +32,18 @@
                 <% end %>
               </div>
             </div>
+            <div class="row">
+              <div class="col-6 text-left">
+                <%= f.check_box :content_type, disabled: @record.hospital_id.nil? ? true : false, value: 1 %>
+                <%= f.label :通院日に設定する %>
+              </div>
+              <div class="col">
+              </div>
+            </div>
             <!-- 履歴入力フォームー -->
             <div class="row mt-3">
               <div class="col-12">
-                <%= f.text_area :history, class: 'form-control', rows: 10, placeholder: "メモを入力", autofocus: true %>
+                <%= f.text_area :history, disabled: @record.hospital_id.nil? ? true : false, class: 'form-control', rows: 10, placeholder: "メモを入力", autofocus: true %>
               </div>
             </div>
           </div>
