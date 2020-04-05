@@ -8,6 +8,7 @@ class CreateRecords < ActiveRecord::Migration[5.2]
       t.string :memo
       t.string :history
       t.string :record_image_id
+      t.decimal :score, precision: 5, scale: 3
 
       t.timestamps
     end
