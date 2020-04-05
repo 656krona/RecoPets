@@ -19,6 +19,7 @@ class RecordsController < ApplicationController
     @record = Record.find(params[:id])
     @hospital = Hospital.find_by(id: params[:hospital_id])
     @records = @pet.records
+    @record.score = Language.get_data(record_params[:memo])
     @record.update(record_params)
     start_time = @record.start_time.strftime('%Y-%m-%d')
     if params[:record][:hospital_id].nil?

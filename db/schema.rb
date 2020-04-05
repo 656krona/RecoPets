@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2020_03_19_065135) do
     t.string "memo"
     t.string "history"
     t.string "record_image_id"
+    t.decimal "score", precision: 5, scale: 3
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
