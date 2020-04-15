@@ -1,24 +1,31 @@
-# README
+# RecoPets
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<http://18.178.62.132/>
 
-Things you may want to cover:
+## 概要
+ペットの毎日の体調管理や通院履歴などの記録が簡単にできるアプリケーションです。
+その他ペットとの生活で欠かせない消耗品の在庫管理や、掲示板で情報交換ができる機能があります。
 
-* Ruby version
+## 機能
+- ペット複数登録
+- 365日記録
+  1. 体調
+  1. 通院
+- カレンダー表示
+  1. 自然言語処理による体調アイコン自動表示
+  1. 通院日自動計算
+- 病院選択
+- 病院検索
+  1. 都道府県
+  1. フリーワード
+- 画像登録
+- 画像プレビュー
+- 在庫管理
+- 掲示板のトピック作成
+- コメント
+- いいね
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- ruby 2.5.7
+- Rails 5.2.4
+- bootstrap : 4.1.1
