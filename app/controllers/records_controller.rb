@@ -12,6 +12,7 @@ class RecordsController < ApplicationController
     @hospitals = Hospital.all
     @pet = Pet.find(params[:pet_id])
     @record = Record.find(params[:id])
+    @start_time = @record.start_time.strftime('%Y-%m-%d')
   end
 
   def update
