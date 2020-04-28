@@ -12,6 +12,7 @@ class RecordsController < ApplicationController
     @hospitals = Hospital.all
     @pet = Pet.find(params[:pet_id])
     @record = Record.find(params[:id])
+    @start_time = @record.start_time.strftime('%Y-%m-%d')
   end
 
   def update
@@ -19,7 +20,7 @@ class RecordsController < ApplicationController
     @record = Record.find(params[:id])
     @hospital = Hospital.find_by(id: params[:hospital_id])
     @records = @pet.records
-    @record.score = Language.get_data(record_params[:memo])
+    @record.score = record_params[:memo].present? ? Language.get_data(record_params[:memo]) : nil
     @record.update(record_params)
     start_time = @record.start_time.strftime('%Y-%m-%d')
     if params[:record][:hospital_id].nil?

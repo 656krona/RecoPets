@@ -16,13 +16,8 @@ class PetsController < ApplicationController
 
     @records = @pet.records
     @user = @pet.user_id
-    plan = Record
-      .where('start_time >= ?', Date.current)
-      .where(content_type: 1)
-      .where(pet_id: @pet)
-      .order(:start_time)
-      .first
-    # 三項演算 ( 式 ? trueの処理 : falseの処理 )
+    plan = Record.date_type_pet_sorted(params[:id])
+    #三項演算 ( 式 ? trueの処理 : falseの処理 )
     @plan_day = plan.present? ? (plan.start_time.to_date - Date.current).to_i : nil
   end
 

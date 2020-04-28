@@ -79,7 +79,7 @@
     <!-- タブ式入力フォームここまで -->
     <div class="row float-right align-items-center mt-3">
       <div class="col">
-        <%= link_to "閉じる", pet_path(@pet.id), class: "btn btn-secondary btn-record-close" %>
+        <%= link_to "閉じる", pet_path(@pet.id, start_date: @start_time), class: "btn btn-secondary btn-record-close" %>
         <%= f.submit "保存", class: "btn btn-info btn-record" %>
       <% end %>
       </div>
