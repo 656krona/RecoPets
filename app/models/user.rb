@@ -12,5 +12,4 @@ class User < ApplicationRecord
   attachment :profile_image, destroy: false
 
   validates :email, presence: true
-  validates :password, presence: true
 end
