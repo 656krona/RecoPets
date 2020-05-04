@@ -90,21 +90,3 @@
   </div>
 
 </div>
-
-<script>
-  $(function(){
-    function readURL(input) {
-      if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          var html = `<img src="${e.target.result}" width="300" height="200">`
-          $('#img-prev').append(html);
-        }
-        reader.readAsDataURL(input.files[0]);
-      }
-    }
-    $("#post_img").change(function(){
-      readURL(this);
-    });
-  })
-</script>

@@ -20,7 +20,7 @@
             </div>
             <div class="field pb-3">
               <div>
-              <%= attachment_image_tag @pet, :pet_image, src: "", id: "pet_image", size: "200x200", alt:"Image preview", class: "item_prev rounded-circle mb-4", fallback: "no_image_pet.svg", :size =>'200x200' %>
+              <%= attachment_image_tag @pet, :pet_image, src: "", id: "img-prev", size: "200x200", alt:"Image preview", class: "item_prev rounded-circle mb-4", fallback: "no_image_pet.svg", :size =>'200x200' %>
               </div>
               <div>
                 <%= f.attachment_field :pet_image, id: "post_img" %>
@@ -36,20 +36,3 @@
   </div>
 </div>
 
-<script>
-  $(function(){
-    function readURL(input) {
-      if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          $('#pet_image').attr('src', e.target.result);
-        }
-        reader.readAsDataURL(input.files[0]);
-      }
-    }
-    $("#post_img").change(function(){
-      readURL(this);
-    });
-})
-
-</script>

@@ -27,7 +27,7 @@
             </div>
             <div class="field pb-3">
               <div>
-              <%= attachment_image_tag @user, :profile_image, src: "", id: "user_image", size: "200x200", alt:"Image preview", class: "item_prev rounded-circle mb-4", fallback: "no_image.jpg", :size =>'200x200' %>
+              <%= attachment_image_tag @user, :profile_image, src: "", id: "img-prev", size: "200x200", alt:"Image preview", class: "item_prev rounded-circle mb-4", fallback: "no_image.jpg", :size =>'200x200' %>
               </div>
               <div>
                 <%= f.attachment_field :profile_image, id: "post_img" %>
@@ -42,21 +42,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  $(function(){
-    function readURL(input) {
-      if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          $('#user_image').attr('src', e.target.result);
-        }
-        reader.readAsDataURL(input.files[0]);
-      }
-    }
-    $("#post_img").change(function(){
-      readURL(this);
-    });
-})
-
-</script>
