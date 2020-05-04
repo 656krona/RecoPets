@@ -2,3 +2,4 @@ $("textarea").val("");
 $("input").val("");
 $("#img-prev").html("");
 $("#comment_area").html("<%= j(render 'comments/comment', topic: @topic, comments: @comments, comment: @comment ) %>");
+$('#flash').html("<%= j(render 'layouts/flash') %>");
