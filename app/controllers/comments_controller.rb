@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     @comment = @topic.comments.new(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      flash[:success] = "コメントが投稿されました"
+      flash.now[:success] = "コメントが投稿されました"
     else
       @comments = Comment.where(topic_id: @topic)
     end
