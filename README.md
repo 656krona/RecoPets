@@ -29,3 +29,13 @@
 - ruby 2.5.7
 - Rails 5.2.4
 - bootstrap : 4.1.1
+
+## 設計資料
+- ER図
+https://drive.google.com/file/d/1DMuyro3ihBu1XfYUjMnQHiz5zjXbhB_t/view?usp=sharing
+- テーブル定義書
+https://docs.google.com/spreadsheets/d/1mXRb-w-IOrBzrqFbw4bTtZ1kUL2llAg9vgwjamsUMps/edit?usp=sharing
+- アプリケーション詳細設計
+https://drive.google.com/file/d/1A_AFq13I98AxgOT3I_snZjnxF-oIT8Ts/view?usp=sharing
+- 画面遷移図
+https://docs.google.com/document/d/1m5F__zuCobbXGchkCypf9__zZscEGnTaZgJm0T4YivU/edit?usp=sharing
