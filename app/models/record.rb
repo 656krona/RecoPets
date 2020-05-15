@@ -6,7 +6,7 @@ class Record < ApplicationRecord
   scope :date,       -> { where('start_time >= ?', Date.current) }
   scope :type,       -> { where(content_type: 1) }
   scope :pet,        -> (pet_id) { where(pet_id: pet_id) }
-  # start_timeカラム近日付を取得する
+  # start_timeカラムが直近日付のレコードを取得する
   scope :sorted,     -> { order(:start_time).first }
 
   class << self
