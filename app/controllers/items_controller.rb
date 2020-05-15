@@ -35,7 +35,6 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @items = current_user.items
-    #binding.pry
     @item.destroy
     flash[:success] = "アイテムを削除しました"
   end
