@@ -8,6 +8,8 @@
 
 User.create(id:1, name:"yuka", email:"a@a", password:"111111")
 
+Admin.create(id:1, email: 'admin@admin', password: "111111")
+
 Pet.find_or_create_by(id:1, user_id: 1, name:"まろん")
 Pet.find_or_create_by(id:2, user_id: 1, name:"ジョン")
 
