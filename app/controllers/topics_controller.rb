@@ -21,12 +21,10 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
     @topic.user_id = current_user.id
-    #binding.pry
     if @topic.save #入力されたデータをdbに保存する。
       redirect_to topics_path
       flash[:success] = "トピックが作成されました!"
     else
-      #binding.pry
       @categories = Category.where(category_status: 0)
       render 'new'
     end
