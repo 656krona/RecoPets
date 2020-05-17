@@ -1,26 +1,64 @@
-<h2>Log in</h2>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RecoPets</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+  </head>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <body>
+    <div id="wrap">
+      <header class="py-4">
+        <div class="container text-center">
+          <%= image_tag 'logo.svg', class: "header-logo" %>
+        </div>
+      </header>
+      <nav class="navbar navbar-expand-md navbar-dark sticky-top" style="background-color: #8dc9b4;">
+        <div class="container">
+          <a class="navbar-brand" href="/admins/sign_in">RecoPets</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+      <div class="container my-3">
+        <div id="flash">
+          <%= render 'layouts/flash' %>
+        </div>
+        <h2>Log in</h2>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+
+          <div class="actions">
+            <%= f.submit "Log in" %>
+          </div>
+        <% end %>
+
+        <%= render "admins/shared/links" %>
+      </div>
+      <%= render 'footer' %>
     </div>
-  <% end %>
+  </body>
+</html>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "admins/shared/links" %>
