@@ -1,6 +1,6 @@
 <header class="py-4">
   <div class="container text-center">
-    <% if user_signed_in? %>
+    <% if user_signed_in? && !request.fullpath.include?("admins") %>
     <a class="header-logo" href="/pets"></a>
       <%= image_tag 'logo.svg', class: "header-logo" %>
     <% else %>
@@ -10,8 +10,10 @@
 </header>
 <nav class="navbar navbar-expand-md navbar-dark sticky-top" style="background-color: #8dc9b4;">
   <div class="container">
-    <% if user_signed_in? %>
+    <% if user_signed_in? && !request.fullpath.include?("admins") %>
     <a class="navbar-brand" href="/pets">RecoPets</a>
+    <% elsif admin_signed_in? && request.fullpath.include?("admins") %>
+    <a class="navbar-brand" href="admins/">RecoPets</a>
     <% else %>
     <a class="navbar-brand" href="/">RecoPets</a>
     <% end %>
@@ -21,13 +23,17 @@
 
     <div class="collapse navbar-collapse" id="navbar-content">
       <ul class="navbar-nav mr-auto">
-        <% if user_signed_in? %>
-          <%#= header_link_item('通院履歴', root_path) %>
+        <% if user_signed_in? && !request.fullpath.include?("admins") %>
           <%= header_link_item('記録', pets_path) %>
           <%= header_link_item('在庫管理', items_path) %>
           <%= header_link_item('掲示板', topics_path) %>
           <%= header_link_item('マイページ', user_path(current_user.id)) %>
           <%= header_link_item('ログアウト', destroy_user_session_path, method: :delete) %>
+        <% elsif admin_signed_in? && request.fullpath.include?("admins") %>
+          <%= header_link_item('会員一覧', admins_root_path) %>
+          <%= header_link_item('掲示板', admins_root_path) %>
+          <%= header_link_item('病院管理', admins_root_path) %>
+          <%= header_link_item('ログアウト', destroy_admin_session_path, method: :delete) %>
         <% else %>
           <%= header_link_item('Recopetsとは', homes_about_path) %>
           <%= header_link_item('掲示板', topics_path) %>
