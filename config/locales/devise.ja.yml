@@ -87,3 +87,4 @@ ja:
         invalid: "メールアドレスとパスワードが一致しません"
         unauthenticated: "ログインしてください"
         not_found_in_database: "メールアドレスとパスワードが一致しません"
+        already_authenticated: "ログイン済みです"
