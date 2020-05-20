@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8 text-left">
         <h3 class="select-title text-center">会員編集画面</h3>
-          <%= form_with model: @user, local: true do |f| %>
+          <%= form_with model: @user, url: admins_user_path, method: :PATCH, local: true do |f| %>
           <%= render 'layouts/error_messages', model: @user %>
           <form>
             <div class="form-group row">
@@ -24,7 +24,7 @@
                 <%= f.email_field :email, id:"Email" %>
               </div>
             </div>
-          <%= link_to "登録する", edit_admins_user_path(@user), class: "btn btn-info" %>
+          <%= f.submit "登録する", class: "btn btn-info" %>
           <%= link_to "戻る", admins_user_path, class: "btn btn-outline-info" %>
           <% end %>
         </form>
