@@ -30,9 +30,8 @@ class UsersController < ApplicationController
 
   #url直接防止
   def baria_user
-    unless params[:id].to_i == current_user.id
+    unless params[:id].to_i == current_user.id && !request.fullpath.include?("admins")
       redirect_to user_path(current_user)
     end
   end
-
 end

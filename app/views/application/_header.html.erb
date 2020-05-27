@@ -30,7 +30,7 @@
           <%= header_link_item('マイページ', user_path(current_user.id)) %>
           <%= header_link_item('ログアウト', destroy_user_session_path, method: :delete) %>
         <% elsif admin_signed_in? && request.fullpath.include?("admins") %>
-          <%= header_link_item('会員一覧', admins_root_path) %>
+          <%= header_link_item('会員一覧', admins_users_path) %>
           <%= header_link_item('掲示板', admins_root_path) %>
           <%= header_link_item('病院管理', admins_root_path) %>
           <%= header_link_item('ログアウト', destroy_admin_session_path, method: :delete) %>
